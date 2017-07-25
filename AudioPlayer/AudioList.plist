@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>audioType</key>
+		<string>mp3</string>
+		<key>imageName</key>
+		<string></string>
+		<key>audioName</key>
+		<string>Hotel California_Eagles_Selected Works 1972-1999</string>
+		<key>index</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>audioType</key>
+		<string>mp3</string>
+		<key>imageName</key>
+		<string></string>
+		<key>audioName</key>
+		<string>《红楼梦》第二十五回 魇魔法姊弟逢五鬼 红楼梦通灵遇双真 上</string>
+		<key>index</key>
+		<string>1</string>
+	</dict>
+	<dict>
+		<key>audioType</key>
+		<string>mp3</string>
+		<key>imageName</key>
+		<string></string>
+		<key>audioName</key>
+		<string>《红楼梦》第二十七回 滴翠亭杨妃戏彩蝶 埋香冢飞燕泣残红 上</string>
+		<key>index</key>
+		<string>2</string>
+	</dict>
+	<dict>
+		<key>audioType</key>
+		<string>mp3</string>
+		<key>imageName</key>
+		<string></string>
+		<key>audioName</key>
+		<string>《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上</string>
+		<key>index</key>
+		<string>3</string>
+	</dict>
+	<dict>
+		<key>audioType</key>
+		<string>mp3</string>
+		<key>imageName</key>
+		<string></string>
+		<key>audioName</key>
+		<string>《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下</string>
+		<key>index</key>
+		<string>4</string>
+	</dict>
+</array>
+</plist>
