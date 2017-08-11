@@ -8,7 +8,7 @@
 		<key>imageName</key>
 		<string></string>
 		<key>audioName</key>
-		<string>Hotel California_Eagles_Selected Works 1972-1999</string>
+		<string>《红楼梦》第六十三回寿怡红群芳开夜宴  死金丹独艳理亲丧 上</string>
 		<key>index</key>
 		<string>0</string>
 	</dict>
@@ -18,7 +18,7 @@
 		<key>imageName</key>
 		<string></string>
 		<key>audioName</key>
-		<string>《红楼梦》第二十五回 魇魔法姊弟逢五鬼 红楼梦通灵遇双真 上</string>
+		<string>《红楼梦》第六十三回寿怡红群芳开夜宴  死金丹独艳理亲丧 中</string>
 		<key>index</key>
 		<string>1</string>
 	</dict>
@@ -28,7 +28,7 @@
 		<key>imageName</key>
 		<string></string>
 		<key>audioName</key>
-		<string>《红楼梦》第二十七回 滴翠亭杨妃戏彩蝶 埋香冢飞燕泣残红 上</string>
+		<string>《红楼梦》第六十三回寿怡红群芳开夜宴  死金丹独艳理亲丧 下</string>
 		<key>index</key>
 		<string>2</string>
 	</dict>
@@ -38,7 +38,7 @@
 		<key>imageName</key>
 		<string></string>
 		<key>audioName</key>
-		<string>《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上</string>
+		<string>《红楼梦》幽淑女悲题五美吟  浪荡子情遗九龙佩 上</string>
 		<key>index</key>
 		<string>3</string>
 	</dict>
@@ -48,9 +48,19 @@
 		<key>imageName</key>
 		<string></string>
 		<key>audioName</key>
-		<string>《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下</string>
+		<string>《红楼梦》幽淑女悲题五美吟  浪荡子情遗九龙佩 中</string>
 		<key>index</key>
 		<string>4</string>
 	</dict>
+    <dict>
+        <key>audioType</key>
+        <string>mp3</string>
+        <key>imageName</key>
+        <string></string>
+        <key>audioName</key>
+        <string>《红楼梦》幽淑女悲题五美吟  浪荡子情遗九龙佩 下</string>
+        <key>index</key>
+        <string>5</string>
+    </dict>
 </array>
 </plist>
