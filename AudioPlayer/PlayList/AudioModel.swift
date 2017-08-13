@@ -14,11 +14,13 @@ struct AudioModel {
     let audioName: String
     let imageName: String
     let audioType: String
+    let musician: String
     
-     init(index: String, audioName: String, imageName: String, audioType: String) {
+    init(index: String, audioName: String, imageName: String, audioType: String, musician: String) {
         self.index = index
         self.audioName = audioName
         self.imageName = imageName
         self.audioType = audioType
+        self.musician = musician
     }
 }

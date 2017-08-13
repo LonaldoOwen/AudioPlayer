@@ -8,10 +8,12 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 
 class ViewController: UIViewController, AVAudioPlayerDelegate {
     
+    /// outlet
     @IBOutlet var audioTitle: UILabel!
     @IBOutlet var singer: UILabel!
     @IBOutlet var volumeControl: UISlider!
@@ -22,55 +24,32 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet var currentProgress: UILabel!
     @IBOutlet var leftProgress: UILabel!
     
+    /// properties
     var isPlaying: Bool = false
     var currentIndex: Int = 0
     var audioPlayer: AVAudioPlayer?
-    var audioList: [AudioModel] = {
-        var audioList: [AudioModel] = []
-        // read property list
-        let filePath = Bundle.main.path(forResource: "AudioList", ofType: "plist")
-        let fileManager = FileManager.default
-        let plistData = fileManager.contents(atPath: filePath!)
-        let audioArray: [[String: String]] = try! PropertyListSerialization.propertyList(from: plistData!, options: [], format: nil) as! [[String : String]]
-        for audioDict in audioArray {
-            let audio: AudioModel = AudioModel(index: audioDict["index"]!, audioName: audioDict["audioName"]!, imageName: audioDict["imageName"]!, audioType: audioDict["audioType"]!)
-            audioList.append(audio)
-        }
-        return audioList
-    }()
+    var audioList: [AudioModel]!
     var musicDurationTimer: Timer!
-    
-    //
-    var playButton: UIButton!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
         print("ViewController: viewDidLoad")
-        // 
+        
+        //
         self.title = "AudioPlayer"
         audioTitle.textColor = UIColor.white
         singer.textColor = UIColor.white
         
-        // audio player
-//        let url = URL(fileURLWithPath: Bundle.main.path(forResource: audioList.first?.audioName, ofType: audioList.first?.audioType)!)
-//        do {
-//            try audioPlayer = AVAudioPlayer(contentsOf: url)
-//            audioPlayer?.delegate = self
-//            audioPlayer?.prepareToPlay()
-//        } catch let error {
-//            print("audioPlayer error: \(error.localizedDescription)")
-//        }
-        /**
-         将实例化AVAudioPlayer抽象成方法
-         */
-        playAudio(forResource: (audioList.first?.audioName)!, ofType: (audioList.first?.audioType)!)
+        audioList = Helper.readPropertyList()
+        
         //
         /**
          问题：1、tile使用的是url；2、中文未解析
          */
         audioTitle.text = audioList.first?.audioName
+        singer.text = audioList.first?.musician
         
         // buttons
         self.playBtn.adjustsImageWhenHighlighted = false
@@ -85,25 +64,67 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         progress.maximumValue = 1.0
         progress.value = 0.0
         
+        // audio player
+//        let url = URL(fileURLWithPath: Bundle.main.path(forResource: audioList.first?.audioName, ofType: audioList.first?.audioType)!)
+//        do {
+//            try audioPlayer = AVAudioPlayer(contentsOf: url)
+//            audioPlayer?.delegate = self
+//            audioPlayer?.prepareToPlay()
+//        } catch let error {
+//            print("audioPlayer error: \(error.localizedDescription)")
+//        }
+        
+        /**
+         将实例化AVAudioPlayer抽象成方法
+         */
+        playAudio(forResource: (audioList.first?.audioName)!, ofType: (audioList.first?.audioType)!)
+        
+        // 注册后台播放，配置audio session
+        let session = AVAudioSession.sharedInstance()
+        do {
+            // Configure the audio session for music playback
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+            try session.setActive(true)
+        } catch let error as NSError {
+            print("Failed to set the audio session category and mode: \(error.localizedDescription)")
+        }
+        
+        // MPRemoteCommandCenter
+        //lockScreenControlUsingMPRemoteCommandCenter()
+        
+        // 设置锁屏歌曲信息
+        setLockScreenMusicInfo()
+        
         // timer
         musicDurationTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(updateSliderValue), userInfo: nil, repeats: true)
         RunLoop.current.add(musicDurationTimer, forMode: RunLoopMode.commonModes)
         
-        // 注册通知
+        // 注册通知（用于列表传值）
         NotificationCenter.default.addObserver(self, selector: #selector(handelNotification), name: NSNotification.Name(rawValue: "PassIndex"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("ViewController: viewWillAppear")
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         print("ViewController: viewDidAppear")
+        // 接收远程事件
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        self.becomeFirstResponder()
     }
+    override var canBecomeFirstResponder: Bool{
+        return true
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         print("ViewController: viewWillDisappear")
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         print("ViewController: viewDidDisappear")
+        UIApplication.shared.endReceivingRemoteControlEvents()
+        self.resignFirstResponder()
     }
     
 
@@ -111,6 +132,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     // 处理通知
     @objc func handelNotification(_ notification: NSNotification) {
@@ -147,9 +169,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         self.present(playListVC, animated: true, completion: nil)
     }
     
-    // play button touchDown
+    // play button touchDown(切换图标)
     @IBAction func handlePlayTouchDown(_ sender: Any) {
         print("handlePlayTouchDown")
+        /// 这里可以根据sender类型，处理所有button的状态
         if !isPlaying {
             //playing
             playBtn.setBackgroundImage(UIImage(named: "player_btn_play_highlight"), for: .highlighted)
@@ -158,7 +181,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             playBtn.setBackgroundImage(UIImage(named: "player_btn_pause_highlight"), for: .highlighted)
         }
     }
-    // playback
+    // playback(toggle play and pause)
     @IBAction func playAudio(_ sender: Any) {
         print("playAudio")
         if !isPlaying {
@@ -180,8 +203,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         }
         playerStop()
         audioTitle.text = audioList[currentIndex].audioName
+        singer.text = audioList[currentIndex].musician
 //        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
         playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+        setLockScreenMusicInfo()
     }
     // 下一首
     @IBAction func playNext(_ sender: Any) {
@@ -193,8 +218,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         }
         playerStop()
         audioTitle.text = audioList[currentIndex].audioName
+        singer.text = audioList[currentIndex].musician
 //        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
         playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+        setLockScreenMusicInfo()
     }
     
     // 播放
@@ -204,7 +231,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         // play
         if let player = audioPlayer {
             player.play()
-            singer.text = "\(audioPlayer?.duration)"
         }
     }
     // 暂停
@@ -226,7 +252,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     // 更新slider
-    @objc func updateSliderValue(_ timer: Any) {
+    @objc
+    func updateSliderValue(_ timer: Any) {
         //print("updateSliderValue")
         guard let player = audioPlayer else {
             return
@@ -247,12 +274,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     /// MARK: AVAudioPlayerDelegate
+    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         //
         print("audioPlayerDidFinishPlaying")
         /**
          问题：播放第一首结束可以进入此方法中；第二首就不进了？？？
-         解决：将实例化AVAudioPlayer抽象成方法后，可以？？？
+         原因：
+         解决：将实例化AVAudioPlayer抽象成方法后，可以（？？？）
         */
         if flag {
             playNext(nextBtn)
@@ -269,26 +298,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     /// MARK: helper
-    // 读取property list生成model数组
-    func readPropertyList() -> [AudioModel] {
-        var audioList: [AudioModel] = []
-        // read property list
-        let filePath = Bundle.main.path(forResource: "AudioList", ofType: "plist")
-        let fileManager = FileManager.default
-        let plistData = fileManager.contents(atPath: filePath!)
-        let audioArray: [[String: String]] = try! PropertyListSerialization.propertyList(from: plistData!, options: [], format: nil) as! [[String : String]]
-        for audioDict in audioArray {
-            let audio: AudioModel = AudioModel(index: audioDict["index"]!, audioName: audioDict["audioName"]!, imageName: audioDict["imageName"]!, audioType: audioDict["audioType"]!)
-            audioList.append(audio)
-        }
-        return audioList
-    }
-    // 生成mp3的URL
-    func getUrl(_ audio: AudioModel) -> URL {
-        let path = Bundle.main.path(forResource: audio.audioName, ofType: audio.audioType)
-        let url = URL(fileURLWithPath: path!)
-        return url
-    }
+    
+    // 生成mp3的URL(用于实例化AVAusioPlayer)
+//    func getUrl(_ audio: AudioModel) -> URL {
+//        let path = Bundle.main.path(forResource: audio.audioName, ofType: audio.audioType)
+//        let url = URL(fileURLWithPath: path!)
+//        return url
+//    }
     
     // 播放audio实例
     func playAudio(forResource name: String, ofType ext: String) {
@@ -309,8 +325,88 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 
     }
     
+    // 设置锁屏显示歌曲信息（包括锁屏和控制中心）
+    func setLockScreenMusicInfo() {
+        
+        let infoDic = [MPMediaItemPropertyTitle: audioList[currentIndex].audioName,
+                       MPMediaItemPropertyArtist: audioList[currentIndex].musician,
+                       MPMediaItemPropertyPlaybackDuration: self.audioPlayer!.duration] as [String : Any]
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = infoDic
+    }
+    
+    // MPRemoteCommandCenter 实现锁屏控制
+    func lockScreenControlUsingMPRemoteCommandCenter() {
+        let rcc = MPRemoteCommandCenter.shared()
+        // 播放/暂停
+        // togglePlayPauseCommand没有相应？？？
+        let togglePlayPauseCommand = rcc.togglePlayPauseCommand
+        togglePlayPauseCommand.isEnabled = true
+        //togglePlayPauseCommand.addTarget(self, action: #selector(handleRC))
+        togglePlayPauseCommand.addTarget { (command) -> MPRemoteCommandHandlerStatus in
+            print("togglePlayPauseCommand: \(command)")
+            return MPRemoteCommandHandlerStatus.success
+        }
+        // 播放
+        let playCommand = rcc.playCommand
+        playCommand.isEnabled = true
+        playCommand.addTarget { (command) -> MPRemoteCommandHandlerStatus in
+            print("playCommand: \(command)")
+            self.playAudio(self.playBtn)    //
+            return MPRemoteCommandHandlerStatus.success
+        }
+        // 暂停
+        let pauseCommand = rcc.pauseCommand
+        pauseCommand.addTarget { (command) -> MPRemoteCommandHandlerStatus in
+            print("playCommand: \(command)")
+            self.playAudio(self.playBtn)    //
+            return MPRemoteCommandHandlerStatus.success
+
+        }
+        // 下一曲
+        let nextCommand = rcc.nextTrackCommand
+        nextCommand.isEnabled = true
+        nextCommand.addTarget { (command) -> MPRemoteCommandHandlerStatus in
+            print("nextCommand: \(command)")
+            return MPRemoteCommandHandlerStatus.success
+        }
+    }
     
 }
+
+/// 处理远程事件
+extension ViewController {
+    
+    override func remoteControlReceived(with event: UIEvent?) {
+        
+        if event?.type == UIEventType.remoteControl {
+            switch event!.subtype {
+            // remoteControlTogglePlayPause没有响应???
+            case UIEventSubtype.remoteControlTogglePlayPause:
+                print("//remoteControlTogglePlayPause")
+                playAudio(playBtn)
+            case UIEventSubtype.remoteControlPlay:
+                print("//remoteControlPlay")
+                //playerPlay()
+                playAudio(playBtn)
+            case UIEventSubtype.remoteControlPause:
+                print("//remoteControlPause")
+                //playerPause()
+                playAudio(playBtn)
+            case UIEventSubtype.remoteControlNextTrack:
+                print("//remoteControlNextTrack")
+                playNext(nextBtn)
+            case UIEventSubtype.remoteControlPreviousTrack:
+                print("//remoteControlPreviousTrack")
+                playPre(preBtn)
+            default:
+                break
+            }
+        }
+    }
+    
+}
+
+
 
 ///
 extension NSString {
@@ -324,5 +420,16 @@ extension NSString {
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
