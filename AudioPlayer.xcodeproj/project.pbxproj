@@ -14,6 +14,46 @@
 		231D7B441F416825006A20E2 /* 白鹿原001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B3E1F416825006A20E2 /* 白鹿原001.mp3 */; };
 		231D7B451F416825006A20E2 /* 白鹿原002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B3F1F416825006A20E2 /* 白鹿原002.mp3 */; };
 		231D7B471F416CBC006A20E2 /* 白鹿原封面.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B461F416CBC006A20E2 /* 白鹿原封面.jpg */; };
+		231D7B701F4174DA006A20E2 /* 白鹿原003.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B481F4174DA006A20E2 /* 白鹿原003.mp3 */; };
+		231D7B711F4174DA006A20E2 /* 白鹿原004.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B491F4174DA006A20E2 /* 白鹿原004.mp3 */; };
+		231D7B721F4174DA006A20E2 /* 白鹿原005.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B4A1F4174DA006A20E2 /* 白鹿原005.mp3 */; };
+		231D7B731F4174DA006A20E2 /* 白鹿原006.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B4B1F4174DA006A20E2 /* 白鹿原006.mp3 */; };
+		231D7B741F4174DA006A20E2 /* 白鹿原007.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B4C1F4174DA006A20E2 /* 白鹿原007.mp3 */; };
+		231D7B751F4174DA006A20E2 /* 白鹿原008.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B4D1F4174DA006A20E2 /* 白鹿原008.mp3 */; };
+		231D7B761F4174DA006A20E2 /* 白鹿原009.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B4E1F4174DA006A20E2 /* 白鹿原009.mp3 */; };
+		231D7B771F4174DA006A20E2 /* 白鹿原010.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B4F1F4174DA006A20E2 /* 白鹿原010.mp3 */; };
+		231D7B781F4174DA006A20E2 /* 白鹿原011.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B501F4174DA006A20E2 /* 白鹿原011.mp3 */; };
+		231D7B791F4174DA006A20E2 /* 白鹿原012.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B511F4174DA006A20E2 /* 白鹿原012.mp3 */; };
+		231D7B7A1F4174DA006A20E2 /* 白鹿原013.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B521F4174DA006A20E2 /* 白鹿原013.mp3 */; };
+		231D7B7B1F4174DA006A20E2 /* 白鹿原014.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B531F4174DA006A20E2 /* 白鹿原014.mp3 */; };
+		231D7B7C1F4174DA006A20E2 /* 白鹿原015.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B541F4174DA006A20E2 /* 白鹿原015.mp3 */; };
+		231D7B7D1F4174DA006A20E2 /* 白鹿原016.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B551F4174DA006A20E2 /* 白鹿原016.mp3 */; };
+		231D7B7E1F4174DA006A20E2 /* 白鹿原017.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B561F4174DA006A20E2 /* 白鹿原017.mp3 */; };
+		231D7B7F1F4174DA006A20E2 /* 白鹿原018.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B571F4174DA006A20E2 /* 白鹿原018.mp3 */; };
+		231D7B801F4174DA006A20E2 /* 白鹿原019.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B581F4174DA006A20E2 /* 白鹿原019.mp3 */; };
+		231D7B811F4174DA006A20E2 /* 白鹿原020.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B591F4174DA006A20E2 /* 白鹿原020.mp3 */; };
+		231D7B821F4174DA006A20E2 /* 白鹿原021.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B5A1F4174DA006A20E2 /* 白鹿原021.mp3 */; };
+		231D7B831F4174DA006A20E2 /* 白鹿原022.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B5B1F4174DA006A20E2 /* 白鹿原022.mp3 */; };
+		231D7B841F4174DA006A20E2 /* 白鹿原023.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B5C1F4174DA006A20E2 /* 白鹿原023.mp3 */; };
+		231D7B851F4174DA006A20E2 /* 白鹿原024.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B5D1F4174DA006A20E2 /* 白鹿原024.mp3 */; };
+		231D7B861F4174DA006A20E2 /* 白鹿原025.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B5E1F4174DA006A20E2 /* 白鹿原025.mp3 */; };
+		231D7B871F4174DA006A20E2 /* 白鹿原026.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B5F1F4174DA006A20E2 /* 白鹿原026.mp3 */; };
+		231D7B881F4174DA006A20E2 /* 白鹿原027.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B601F4174DA006A20E2 /* 白鹿原027.mp3 */; };
+		231D7B891F4174DA006A20E2 /* 白鹿原028.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B611F4174DA006A20E2 /* 白鹿原028.mp3 */; };
+		231D7B8A1F4174DA006A20E2 /* 白鹿原029.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B621F4174DA006A20E2 /* 白鹿原029.mp3 */; };
+		231D7B8B1F4174DA006A20E2 /* 白鹿原030.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B631F4174DA006A20E2 /* 白鹿原030.mp3 */; };
+		231D7B8C1F4174DA006A20E2 /* 白鹿原031.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B641F4174DA006A20E2 /* 白鹿原031.mp3 */; };
+		231D7B8D1F4174DA006A20E2 /* 白鹿原032.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B651F4174DA006A20E2 /* 白鹿原032.mp3 */; };
+		231D7B8E1F4174DA006A20E2 /* 白鹿原033.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B661F4174DA006A20E2 /* 白鹿原033.mp3 */; };
+		231D7B8F1F4174DA006A20E2 /* 白鹿原034.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B671F4174DA006A20E2 /* 白鹿原034.mp3 */; };
+		231D7B901F4174DA006A20E2 /* 白鹿原035.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B681F4174DA006A20E2 /* 白鹿原035.mp3 */; };
+		231D7B911F4174DA006A20E2 /* 白鹿原036.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B691F4174DA006A20E2 /* 白鹿原036.mp3 */; };
+		231D7B921F4174DA006A20E2 /* 白鹿原037.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B6A1F4174DA006A20E2 /* 白鹿原037.mp3 */; };
+		231D7B931F4174DA006A20E2 /* 白鹿原038.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B6B1F4174DA006A20E2 /* 白鹿原038.mp3 */; };
+		231D7B941F4174DA006A20E2 /* 白鹿原039.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B6C1F4174DA006A20E2 /* 白鹿原039.mp3 */; };
+		231D7B951F4174DA006A20E2 /* 白鹿原040.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B6D1F4174DA006A20E2 /* 白鹿原040.mp3 */; };
+		231D7B961F4174DA006A20E2 /* 白鹿原041.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B6E1F4174DA006A20E2 /* 白鹿原041.mp3 */; };
+		231D7B971F4174DA006A20E2 /* 白鹿原042.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B6F1F4174DA006A20E2 /* 白鹿原042.mp3 */; };
 		5A84ACE71F11E38D00FC0E9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84ACE61F11E38D00FC0E9A /* AppDelegate.swift */; };
 		5A84ACEC1F11E38D00FC0E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A84ACEA1F11E38D00FC0E9A /* Main.storyboard */; };
 		5A84ACEE1F11E38D00FC0E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A84ACED1F11E38D00FC0E9A /* Assets.xcassets */; };
@@ -104,6 +144,46 @@
 		231D7B3E1F416825006A20E2 /* 白鹿原001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原001.mp3"; sourceTree = "<group>"; };
 		231D7B3F1F416825006A20E2 /* 白鹿原002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原002.mp3"; sourceTree = "<group>"; };
 		231D7B461F416CBC006A20E2 /* 白鹿原封面.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "白鹿原封面.jpg"; sourceTree = "<group>"; };
+		231D7B481F4174DA006A20E2 /* 白鹿原003.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原003.mp3"; sourceTree = "<group>"; };
+		231D7B491F4174DA006A20E2 /* 白鹿原004.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原004.mp3"; sourceTree = "<group>"; };
+		231D7B4A1F4174DA006A20E2 /* 白鹿原005.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原005.mp3"; sourceTree = "<group>"; };
+		231D7B4B1F4174DA006A20E2 /* 白鹿原006.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原006.mp3"; sourceTree = "<group>"; };
+		231D7B4C1F4174DA006A20E2 /* 白鹿原007.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原007.mp3"; sourceTree = "<group>"; };
+		231D7B4D1F4174DA006A20E2 /* 白鹿原008.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原008.mp3"; sourceTree = "<group>"; };
+		231D7B4E1F4174DA006A20E2 /* 白鹿原009.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原009.mp3"; sourceTree = "<group>"; };
+		231D7B4F1F4174DA006A20E2 /* 白鹿原010.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原010.mp3"; sourceTree = "<group>"; };
+		231D7B501F4174DA006A20E2 /* 白鹿原011.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原011.mp3"; sourceTree = "<group>"; };
+		231D7B511F4174DA006A20E2 /* 白鹿原012.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原012.mp3"; sourceTree = "<group>"; };
+		231D7B521F4174DA006A20E2 /* 白鹿原013.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原013.mp3"; sourceTree = "<group>"; };
+		231D7B531F4174DA006A20E2 /* 白鹿原014.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原014.mp3"; sourceTree = "<group>"; };
+		231D7B541F4174DA006A20E2 /* 白鹿原015.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原015.mp3"; sourceTree = "<group>"; };
+		231D7B551F4174DA006A20E2 /* 白鹿原016.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原016.mp3"; sourceTree = "<group>"; };
+		231D7B561F4174DA006A20E2 /* 白鹿原017.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原017.mp3"; sourceTree = "<group>"; };
+		231D7B571F4174DA006A20E2 /* 白鹿原018.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原018.mp3"; sourceTree = "<group>"; };
+		231D7B581F4174DA006A20E2 /* 白鹿原019.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原019.mp3"; sourceTree = "<group>"; };
+		231D7B591F4174DA006A20E2 /* 白鹿原020.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原020.mp3"; sourceTree = "<group>"; };
+		231D7B5A1F4174DA006A20E2 /* 白鹿原021.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原021.mp3"; sourceTree = "<group>"; };
+		231D7B5B1F4174DA006A20E2 /* 白鹿原022.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原022.mp3"; sourceTree = "<group>"; };
+		231D7B5C1F4174DA006A20E2 /* 白鹿原023.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原023.mp3"; sourceTree = "<group>"; };
+		231D7B5D1F4174DA006A20E2 /* 白鹿原024.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原024.mp3"; sourceTree = "<group>"; };
+		231D7B5E1F4174DA006A20E2 /* 白鹿原025.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原025.mp3"; sourceTree = "<group>"; };
+		231D7B5F1F4174DA006A20E2 /* 白鹿原026.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原026.mp3"; sourceTree = "<group>"; };
+		231D7B601F4174DA006A20E2 /* 白鹿原027.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原027.mp3"; sourceTree = "<group>"; };
+		231D7B611F4174DA006A20E2 /* 白鹿原028.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原028.mp3"; sourceTree = "<group>"; };
+		231D7B621F4174DA006A20E2 /* 白鹿原029.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原029.mp3"; sourceTree = "<group>"; };
+		231D7B631F4174DA006A20E2 /* 白鹿原030.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原030.mp3"; sourceTree = "<group>"; };
+		231D7B641F4174DA006A20E2 /* 白鹿原031.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原031.mp3"; sourceTree = "<group>"; };
+		231D7B651F4174DA006A20E2 /* 白鹿原032.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原032.mp3"; sourceTree = "<group>"; };
+		231D7B661F4174DA006A20E2 /* 白鹿原033.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原033.mp3"; sourceTree = "<group>"; };
+		231D7B671F4174DA006A20E2 /* 白鹿原034.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原034.mp3"; sourceTree = "<group>"; };
+		231D7B681F4174DA006A20E2 /* 白鹿原035.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原035.mp3"; sourceTree = "<group>"; };
+		231D7B691F4174DA006A20E2 /* 白鹿原036.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原036.mp3"; sourceTree = "<group>"; };
+		231D7B6A1F4174DA006A20E2 /* 白鹿原037.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原037.mp3"; sourceTree = "<group>"; };
+		231D7B6B1F4174DA006A20E2 /* 白鹿原038.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原038.mp3"; sourceTree = "<group>"; };
+		231D7B6C1F4174DA006A20E2 /* 白鹿原039.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原039.mp3"; sourceTree = "<group>"; };
+		231D7B6D1F4174DA006A20E2 /* 白鹿原040.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原040.mp3"; sourceTree = "<group>"; };
+		231D7B6E1F4174DA006A20E2 /* 白鹿原041.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原041.mp3"; sourceTree = "<group>"; };
+		231D7B6F1F4174DA006A20E2 /* 白鹿原042.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "白鹿原042.mp3"; sourceTree = "<group>"; };
 		5A84ACE31F11E38D00FC0E9A /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A84ACE61F11E38D00FC0E9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A84ACEB1F11E38D00FC0E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +289,46 @@
 				231D7B3D1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 */,
 				231D7B3E1F416825006A20E2 /* 白鹿原001.mp3 */,
 				231D7B3F1F416825006A20E2 /* 白鹿原002.mp3 */,
+				231D7B481F4174DA006A20E2 /* 白鹿原003.mp3 */,
+				231D7B491F4174DA006A20E2 /* 白鹿原004.mp3 */,
+				231D7B4A1F4174DA006A20E2 /* 白鹿原005.mp3 */,
+				231D7B4B1F4174DA006A20E2 /* 白鹿原006.mp3 */,
+				231D7B4C1F4174DA006A20E2 /* 白鹿原007.mp3 */,
+				231D7B4D1F4174DA006A20E2 /* 白鹿原008.mp3 */,
+				231D7B4E1F4174DA006A20E2 /* 白鹿原009.mp3 */,
+				231D7B4F1F4174DA006A20E2 /* 白鹿原010.mp3 */,
+				231D7B501F4174DA006A20E2 /* 白鹿原011.mp3 */,
+				231D7B511F4174DA006A20E2 /* 白鹿原012.mp3 */,
+				231D7B521F4174DA006A20E2 /* 白鹿原013.mp3 */,
+				231D7B531F4174DA006A20E2 /* 白鹿原014.mp3 */,
+				231D7B541F4174DA006A20E2 /* 白鹿原015.mp3 */,
+				231D7B551F4174DA006A20E2 /* 白鹿原016.mp3 */,
+				231D7B561F4174DA006A20E2 /* 白鹿原017.mp3 */,
+				231D7B571F4174DA006A20E2 /* 白鹿原018.mp3 */,
+				231D7B581F4174DA006A20E2 /* 白鹿原019.mp3 */,
+				231D7B591F4174DA006A20E2 /* 白鹿原020.mp3 */,
+				231D7B5A1F4174DA006A20E2 /* 白鹿原021.mp3 */,
+				231D7B5B1F4174DA006A20E2 /* 白鹿原022.mp3 */,
+				231D7B5C1F4174DA006A20E2 /* 白鹿原023.mp3 */,
+				231D7B5D1F4174DA006A20E2 /* 白鹿原024.mp3 */,
+				231D7B5E1F4174DA006A20E2 /* 白鹿原025.mp3 */,
+				231D7B5F1F4174DA006A20E2 /* 白鹿原026.mp3 */,
+				231D7B601F4174DA006A20E2 /* 白鹿原027.mp3 */,
+				231D7B611F4174DA006A20E2 /* 白鹿原028.mp3 */,
+				231D7B621F4174DA006A20E2 /* 白鹿原029.mp3 */,
+				231D7B631F4174DA006A20E2 /* 白鹿原030.mp3 */,
+				231D7B641F4174DA006A20E2 /* 白鹿原031.mp3 */,
+				231D7B651F4174DA006A20E2 /* 白鹿原032.mp3 */,
+				231D7B661F4174DA006A20E2 /* 白鹿原033.mp3 */,
+				231D7B671F4174DA006A20E2 /* 白鹿原034.mp3 */,
+				231D7B681F4174DA006A20E2 /* 白鹿原035.mp3 */,
+				231D7B691F4174DA006A20E2 /* 白鹿原036.mp3 */,
+				231D7B6A1F4174DA006A20E2 /* 白鹿原037.mp3 */,
+				231D7B6B1F4174DA006A20E2 /* 白鹿原038.mp3 */,
+				231D7B6C1F4174DA006A20E2 /* 白鹿原039.mp3 */,
+				231D7B6D1F4174DA006A20E2 /* 白鹿原040.mp3 */,
+				231D7B6E1F4174DA006A20E2 /* 白鹿原041.mp3 */,
+				231D7B6F1F4174DA006A20E2 /* 白鹿原042.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -446,15 +566,22 @@
 				5AF8BCCA1F1A793F00B97865 /* miniplayer_btn_random_normal_b@2x.png in Resources */,
 				231D7B421F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3 in Resources */,
 				231D7B441F416825006A20E2 /* 白鹿原001.mp3 in Resources */,
+				231D7B801F4174DA006A20E2 /* 白鹿原019.mp3 in Resources */,
 				231D7B451F416825006A20E2 /* 白鹿原002.mp3 in Resources */,
+				231D7B741F4174DA006A20E2 /* 白鹿原007.mp3 in Resources */,
 				5AF8BCE01F1A793F00B97865 /* player_btn_random_highlight@2x.png in Resources */,
 				5AF8BCB31F1A793F00B97865 /* checkbox_on@2x.png in Resources */,
+				231D7B841F4174DA006A20E2 /* 白鹿原023.mp3 in Resources */,
+				231D7B941F4174DA006A20E2 /* 白鹿原039.mp3 in Resources */,
 				5AF8BCD11F1A793F00B97865 /* miniplayer_btn_repeatone_normal@2x.png in Resources */,
 				5AF8BCC31F1A793F00B97865 /* list_play@2x.png in Resources */,
 				5AF8BCBD1F1A793F00B97865 /* hp_player_progress_played@2x.png in Resources */,
+				231D7B731F4174DA006A20E2 /* 白鹿原006.mp3 in Resources */,
 				5AF8BCF01F1A793F00B97865 /* playing_volumn_sound_icon_b@2x.png in Resources */,
 				5AF8BCD81F1A793F00B97865 /* player_btn_pause_normal@2x.png in Resources */,
+				231D7B8E1F4174DA006A20E2 /* 白鹿原033.mp3 in Resources */,
 				5AF8BCE21F1A793F00B97865 /* player_btn_repeat_disable@2x.png in Resources */,
+				231D7B881F4174DA006A20E2 /* 白鹿原027.mp3 in Resources */,
 				231D7B431F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 in Resources */,
 				5AF8BCBE1F1A793F00B97865 /* hp_player_progress_reverse@2x.png in Resources */,
 				5AF8BCF21F1A793F00B97865 /* playing_volumn_sound_icon_h_b@2x.png in Resources */,
@@ -462,46 +589,75 @@
 				5AF8BCCC1F1A793F00B97865 /* miniplayer_btn_repeat_highlight_b@2x.png in Resources */,
 				5AF8BCC71F1A793F00B97865 /* miniplayer_btn_random_highlight@2x.png in Resources */,
 				5AF8BCD71F1A793F00B97865 /* player_btn_pause_highlight@2x.png in Resources */,
+				231D7B7A1F4174DA006A20E2 /* 白鹿原013.mp3 in Resources */,
 				5AF8BCBA1F1A793F00B97865 /* hp_player_btn_pre_highlight@2x.png in Resources */,
+				231D7B921F4174DA006A20E2 /* 白鹿原037.mp3 in Resources */,
 				5AF8BCC81F1A793F00B97865 /* miniplayer_btn_random_highlight_b@2x.png in Resources */,
+				231D7B8C1F4174DA006A20E2 /* 白鹿原031.mp3 in Resources */,
+				231D7B8B1F4174DA006A20E2 /* 白鹿原030.mp3 in Resources */,
 				5AF8BCDE1F1A793F00B97865 /* player_btn_pre_normal@2x.png in Resources */,
+				231D7B8A1F4174DA006A20E2 /* 白鹿原029.mp3 in Resources */,
+				231D7B721F4174DA006A20E2 /* 白鹿原005.mp3 in Resources */,
 				5AF8BCEF1F1A793F00B97865 /* playing_volumn_sound_icon@2x.png in Resources */,
 				5AF8BCB91F1A793F00B97865 /* hp_player_btn_play_normal@2x.png in Resources */,
+				231D7B771F4174DA006A20E2 /* 白鹿原010.mp3 in Resources */,
+				231D7B911F4174DA006A20E2 /* 白鹿原036.mp3 in Resources */,
 				231D7B411F416825006A20E2 /* 《红楼梦》第二十五回 魇魔法姊弟逢五鬼 红楼梦通灵遇双真 上.mp3 in Resources */,
+				231D7B901F4174DA006A20E2 /* 白鹿原035.mp3 in Resources */,
 				5AF8BCBB1F1A793F00B97865 /* hp_player_btn_pre_normal@2x.png in Resources */,
 				5A84ACF11F11E38D00FC0E9A /* LaunchScreen.storyboard in Resources */,
+				231D7B7F1F4174DA006A20E2 /* 白鹿原018.mp3 in Resources */,
+				231D7B8D1F4174DA006A20E2 /* 白鹿原032.mp3 in Resources */,
+				231D7B711F4174DA006A20E2 /* 白鹿原004.mp3 in Resources */,
 				5AF8BCEC1F1A793F00B97865 /* playing_volumn_slide_sound_little_icon_b@2x.png in Resources */,
 				5AF8BCBC1F1A793F00B97865 /* hp_player_progress_forword@2x.png in Resources */,
 				5AF8BCED1F1A793F00B97865 /* playing_volumn_slide_sound_little_icon_h@2x.png in Resources */,
 				5AF8BCB41F1A793F00B97865 /* hp_player_btn_next_highlight@2x.png in Resources */,
+				231D7B851F4174DA006A20E2 /* 白鹿原024.mp3 in Resources */,
 				5AF8BCB51F1A793F00B97865 /* hp_player_btn_next_normal@2x.png in Resources */,
+				231D7B891F4174DA006A20E2 /* 白鹿原028.mp3 in Resources */,
 				5AF8BCD01F1A793F00B97865 /* miniplayer_btn_repeatone_highlight_b@2x.png in Resources */,
 				5AF8BCCD1F1A793F00B97865 /* miniplayer_btn_repeat_normal@2x.png in Resources */,
+				231D7B751F4174DA006A20E2 /* 白鹿原008.mp3 in Resources */,
 				5AF8BCD51F1A793F00B97865 /* player_btn_next_highlight@2x.png in Resources */,
+				231D7B931F4174DA006A20E2 /* 白鹿原038.mp3 in Resources */,
 				5AF8BCE11F1A793F00B97865 /* player_btn_random_normal@2x.png in Resources */,
 				5AF8BCE31F1A793F00B97865 /* player_btn_repeat_highlight@2x.png in Resources */,
 				5AF8BCB81F1A793F00B97865 /* hp_player_btn_play_highlight@2x.png in Resources */,
+				231D7B811F4174DA006A20E2 /* 白鹿原020.mp3 in Resources */,
 				5A84ACEE1F11E38D00FC0E9A /* Assets.xcassets in Resources */,
 				5A84ACEC1F11E38D00FC0E9A /* Main.storyboard in Resources */,
+				231D7B861F4174DA006A20E2 /* 白鹿原025.mp3 in Resources */,
+				231D7B8F1F4174DA006A20E2 /* 白鹿原034.mp3 in Resources */,
+				231D7B961F4174DA006A20E2 /* 白鹿原041.mp3 in Resources */,
+				231D7B7C1F4174DA006A20E2 /* 白鹿原015.mp3 in Resources */,
 				5AF8BCDD1F1A793F00B97865 /* player_btn_pre_highlight@2x.png in Resources */,
+				231D7B821F4174DA006A20E2 /* 白鹿原021.mp3 in Resources */,
 				5AF8BCCE1F1A793F00B97865 /* miniplayer_btn_repeat_normal_b@2x.png in Resources */,
 				5AF8BCDB1F1A793F00B97865 /* player_btn_playlist_highlight@2x.png in Resources */,
+				231D7B7B1F4174DA006A20E2 /* 白鹿原014.mp3 in Resources */,
 				5AF8BCDA1F1A793F00B97865 /* player_btn_play_normal@2x.png in Resources */,
 				5AF8BCC11F1A793F00B97865 /* icon_operate_play@2x.png in Resources */,
+				231D7B831F4174DA006A20E2 /* 白鹿原022.mp3 in Resources */,
 				5AF8BCF11F1A793F00B97865 /* playing_volumn_sound_icon_h@2x.png in Resources */,
 				5A84ACFF1F12421200FC0E9A /* AudioList.plist in Resources */,
 				5AF8BCB71F1A793F00B97865 /* hp_player_btn_pause_normal@2x.png in Resources */,
 				5AF8BCE41F1A793F00B97865 /* player_btn_repeat_normal@2x.png in Resources */,
+				231D7B971F4174DA006A20E2 /* 白鹿原042.mp3 in Resources */,
+				231D7B761F4174DA006A20E2 /* 白鹿原009.mp3 in Resources */,
 				5AF8BCC51F1A793F00B97865 /* miniplayer_btn_playlist_highlight@2x.png in Resources */,
 				5AF8BCDF1F1A793F00B97865 /* player_btn_random_disable@2x.png in Resources */,
 				5AF8BCD31F1A793F00B97865 /* player_btn_more_highlight@2x.png in Resources */,
 				5AF8BCEB1F1A793F00B97865 /* playing_volumn_slide_sound_little_icon@2x.png in Resources */,
 				5AF8BCBF1F1A793F00B97865 /* icon_manage_downloadingView@2x.png in Resources */,
+				231D7B701F4174DA006A20E2 /* 白鹿原003.mp3 in Resources */,
 				5AF8BCC61F1A793F00B97865 /* miniplayer_btn_playlist_normal@2x.png in Resources */,
 				5AF8BCB61F1A793F00B97865 /* hp_player_btn_pause_highlight@2x.png in Resources */,
 				5AF8BCDC1F1A793F00B97865 /* player_btn_playlist_normal@2x.png in Resources */,
+				231D7B871F4174DA006A20E2 /* 白鹿原026.mp3 in Resources */,
 				231D7B401F416825006A20E2 /* Hotel California_Eagles_Selected Works 1972-1999.mp3 in Resources */,
 				231D7B471F416CBC006A20E2 /* 白鹿原封面.jpg in Resources */,
+				231D7B951F4174DA006A20E2 /* 白鹿原040.mp3 in Resources */,
 				5AF8BCEE1F1A793F00B97865 /* playing_volumn_slide_sound_little_icon_h_b@2x.png in Resources */,
 				5AF8BCC91F1A793F00B97865 /* miniplayer_btn_random_normal@2x.png in Resources */,
 				5AF8BCB21F1A793F00B97865 /* checkbox_off@2x.png in Resources */,
@@ -512,11 +668,15 @@
 				5AF8BCE51F1A793F00B97865 /* player_btn_repeatone_disable@2x.png in Resources */,
 				5AF8BCC21F1A793F00B97865 /* icon_operate_play_pressed@2x.png in Resources */,
 				5AF8BCD41F1A793F00B97865 /* player_btn_more_normal@2x.png in Resources */,
+				231D7B7D1F4174DA006A20E2 /* 白鹿原016.mp3 in Resources */,
+				231D7B7E1F4174DA006A20E2 /* 白鹿原017.mp3 in Resources */,
 				5AF8BCE81F1A793F00B97865 /* player_slider_playback_left@2x.png in Resources */,
 				5AF8BCD91F1A793F00B97865 /* player_btn_play_highlight@2x.png in Resources */,
 				5AF8BCCB1F1A793F00B97865 /* miniplayer_btn_repeat_highlight@2x.png in Resources */,
 				5AF8BCE71F1A793F00B97865 /* player_btn_repeatone_normal@2x.png in Resources */,
+				231D7B781F4174DA006A20E2 /* 白鹿原011.mp3 in Resources */,
 				5AF8BCC01F1A793F00B97865 /* icon_manage_downloadingView_pressed@2x.png in Resources */,
+				231D7B791F4174DA006A20E2 /* 白鹿原012.mp3 in Resources */,
 				5AF8BCCF1F1A793F00B97865 /* miniplayer_btn_repeatone_highlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
