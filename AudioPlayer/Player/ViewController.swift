@@ -16,6 +16,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     /// outlet
     @IBOutlet var audioTitle: UILabel!
     @IBOutlet var singer: UILabel!
+    @IBOutlet weak var cover: UIImageView!
     @IBOutlet var volumeControl: UISlider!
     @IBOutlet var playBtn: UIButton!
     @IBOutlet var nextBtn: UIButton!
@@ -50,6 +51,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
          */
         audioTitle.text = audioList.first?.audioName
         singer.text = audioList.first?.musician
+        self.cover.image = UIImage(named: "白鹿原封面.jpg")
         
         // buttons
         self.playBtn.adjustsImageWhenHighlighted = false

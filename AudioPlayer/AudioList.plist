@@ -50,5 +50,29 @@
 		<key>index</key>
 		<string>3</string>
 	</dict>
+    <dict>
+        <key>musician</key>
+        <string>作者：陈忠实 播读：李野默</string>
+        <key>audioType</key>
+        <string>mp3</string>
+        <key>imageName</key>
+        <string></string>
+        <key>audioName</key>
+        <string>白鹿原001</string>
+        <key>index</key>
+        <string>4</string>
+    </dict>
+    <dict>
+        <key>musician</key>
+        <string>作者：陈忠实 播读：李野默</string>
+        <key>audioType</key>
+        <string>mp3</string>
+        <key>imageName</key>
+        <string></string>
+        <key>audioName</key>
+        <string>白鹿原002</string>
+        <key>index</key>
+        <string>5</string>
+    </dict>
 </array>
 </plist>

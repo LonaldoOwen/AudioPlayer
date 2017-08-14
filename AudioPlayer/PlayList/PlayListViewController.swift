@@ -133,12 +133,25 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
     /// MARK: delegate
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        indexToPlay = indexPath.row
-        // 发送通知（发送列表index值）
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PassIndex"), object: nil, userInfo: ["index": indexToPlay])
+        print("didHighlightRowAt")
+//        indexToPlay = indexPath.row
+//        // 发送通知（发送列表index值）
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PassIndex"), object: nil, userInfo: ["index": indexToPlay])
+    }
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        print("didHighlightRowAt")
+//        // 发送通知（发送列表index值）
+//        indexToPlay = indexPath.row
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PassIndex"), object: nil, userInfo: ["index": indexToPlay])
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelectRowAt: \(indexPath.row)")
+        // 发送通知（发送列表index值）
+        /**
+         注意：在这里传值，避免点一下cell就触发，
+        */
+        indexToPlay = indexPath.row
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PassIndex"), object: nil, userInfo: ["index": indexToPlay])
         tableView.deselectRow(at: indexPath, animated: false)
         dismissWithAnimation()
     }
