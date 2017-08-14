@@ -65,4 +65,6 @@ fastlane/test_output
 
 #The other files
 *.DS_Store
-
+AudioPlayer/Resource/Audio
+AudioPlayer/Resource/Vedio
+AudioPlayer/Resource/.DS_Store
