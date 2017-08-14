@@ -78,10 +78,11 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
         closeView.translatesAutoresizingMaskIntoConstraints = false
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(handleTap))
         closeView.addGestureRecognizer(tapGesture)
+        // 
         setUpConstraints()
         
         //
-        audioList = readPropertyList()
+        audioList = Helper.readPropertyList()
         
     }
     
@@ -111,6 +112,7 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     /// MARK: data source
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -129,9 +131,10 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     /// MARK: delegate
+    
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         indexToPlay = indexPath.row
-        // 发送通知
+        // 发送通知（发送列表index值）
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PassIndex"), object: nil, userInfo: ["index": indexToPlay])
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -143,6 +146,15 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
         print("didDeselectRowAt: \(indexPath.row)")
     }
     
+    
+    // 点击关闭button
+    @objc
+    func handleTap() {
+        dismissWithAnimation()
+    }
+    
+    
+    /// MARK: helper
     
     // 设置控件约束
     func setUpConstraints() {
@@ -159,28 +171,6 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
         backgroundView.addConstraints(oneBottom_H)
         backgroundView.addConstraints(oneTop_H)
         backgroundView.addConstraints(closeView_H)
-    }
-    
-    // 点击关闭button
-    @objc func handleTap() {
-        dismissWithAnimation()
-    }
-    
-    
-    /// MARK: helper
-    // 读取property lsit
-    func readPropertyList() -> [AudioModel] {
-        var audioList: [AudioModel] = []
-        // read property list
-        let filePath = Bundle.main.path(forResource: "AudioList", ofType: "plist")
-        let fileManager = FileManager.default
-        let plistData = fileManager.contents(atPath: filePath!)
-        let audioArray: [[String: String]] = try! PropertyListSerialization.propertyList(from: plistData!, options: [], format: nil) as! [[String : String]]
-        for audioDict in audioArray {
-            let audio: AudioModel = AudioModel(index: audioDict["index"]!, audioName: audioDict["audioName"]!, imageName: audioDict["imageName"]!, audioType: audioDict["audioType"]!)
-            audioList.append(audio)
-        }
-        return audioList
     }
     
     //

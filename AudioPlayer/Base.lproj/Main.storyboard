@@ -165,33 +165,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxJ-6y-THf" userLabel="PlayBtn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxJ-6y-THf" userLabel="PlayBtn">
                                 <rect key="frame" x="155" y="403" width="64" height="64"/>
                                 <state key="normal" backgroundImage="player_btn_play_normal.png"/>
                                 <connections>
-                                    <action selector="handlePlayClick:" destination="cA0-55-idi" eventType="touchUpInside" id="8U2-e1-rkR"/>
                                     <action selector="handlePlayTouchDown:" destination="cA0-55-idi" eventType="touchDown" id="KEb-Wb-DuE"/>
+                                    <action selector="playback:" destination="cA0-55-idi" eventType="touchUpInside" id="Hl3-4H-855"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="checkbox_off.png" maximumValueImage="checkbox_on.png" translatesAutoresizingMaskIntoConstraints="NO" id="GAT-uu-Tob">
-                                <rect key="frame" x="60" y="85" width="255" height="31"/>
+                                <rect key="frame" x="64" y="85" width="243" height="31"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" red="0.21176470589999999" green="0.71764705880000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.81176470590000005" green="0.027450980390000001" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="ajustProgress:" destination="cA0-55-idi" eventType="valueChanged" id="sNq-m6-ub0"/>
+                                </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5f-rh-dGe" userLabel="Next">
+                                <rect key="frame" x="249" y="403" width="64" height="64"/>
+                                <state key="normal" backgroundImage="player_btn_next_normal.png"/>
+                                <connections>
+                                    <action selector="nextBtnClick:" destination="cA0-55-idi" eventType="touchUpInside" id="dfX-pO-9Za"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctM-Sg-xzX" userLabel="Pre">
+                                <rect key="frame" x="61" y="403" width="64" height="64"/>
+                                <state key="normal" backgroundImage="player_btn_pre_normal.png"/>
+                                <connections>
+                                    <action selector="preBtnClick:" destination="cA0-55-idi" eventType="touchUpInside" id="fWe-ht-T87"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9U-c7-5fd">
+                                <rect key="frame" x="16" y="165" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="singer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eg-eu-1Q1">
+                                <rect key="frame" x="16" y="206" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncm-eh-Fru">
+                                <rect key="frame" x="313" y="90" width="52" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="52" id="sTb-CZ-TRu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJQ-wk-K3a">
+                                <rect key="frame" x="8" y="90" width="50" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="bl7-Hl-tb8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2eg-eu-1Q1" firstAttribute="top" secondItem="e9U-c7-5fd" secondAttribute="bottom" constant="20" id="30F-o2-Bcr"/>
+                            <constraint firstItem="H5f-rh-dGe" firstAttribute="centerY" secondItem="lxJ-6y-THf" secondAttribute="centerY" id="8hw-Jm-T7g"/>
+                            <constraint firstItem="ncm-eh-Fru" firstAttribute="leading" secondItem="GAT-uu-Tob" secondAttribute="trailing" constant="8" id="DX2-2d-Mj3"/>
+                            <constraint firstItem="aJQ-wk-K3a" firstAttribute="centerY" secondItem="GAT-uu-Tob" secondAttribute="centerY" id="FMP-Gf-XBd"/>
                             <constraint firstItem="lxJ-6y-THf" firstAttribute="centerX" secondItem="uww-1v-QoO" secondAttribute="centerX" id="FRO-iP-64e"/>
-                            <constraint firstAttribute="trailing" secondItem="GAT-uu-Tob" secondAttribute="trailing" constant="62" id="QZa-Eo-LLr"/>
+                            <constraint firstAttribute="trailing" secondItem="e9U-c7-5fd" secondAttribute="trailing" constant="16" id="GPx-8V-lAu"/>
+                            <constraint firstItem="e9U-c7-5fd" firstAttribute="leading" secondItem="uww-1v-QoO" secondAttribute="leading" constant="16" id="GxD-Xg-J30"/>
+                            <constraint firstItem="GAT-uu-Tob" firstAttribute="leading" secondItem="aJQ-wk-K3a" secondAttribute="trailing" constant="8" id="PSI-uw-ffg"/>
+                            <constraint firstAttribute="trailing" secondItem="2eg-eu-1Q1" secondAttribute="trailing" constant="16" id="RRt-jx-QFL"/>
                             <constraint firstItem="GAT-uu-Tob" firstAttribute="top" secondItem="fvo-oM-9Wv" secondAttribute="bottom" constant="65" id="YgZ-yv-ahj"/>
+                            <constraint firstItem="ncm-eh-Fru" firstAttribute="centerY" secondItem="GAT-uu-Tob" secondAttribute="centerY" id="aIQ-qL-0Ij"/>
                             <constraint firstItem="ISA-oM-e0H" firstAttribute="top" secondItem="lxJ-6y-THf" secondAttribute="bottom" constant="200" id="cvL-sc-DEP"/>
-                            <constraint firstItem="GAT-uu-Tob" firstAttribute="leading" secondItem="uww-1v-QoO" secondAttribute="leading" constant="62" id="ng4-Sm-uOU"/>
+                            <constraint firstItem="ctM-Sg-xzX" firstAttribute="centerY" secondItem="lxJ-6y-THf" secondAttribute="centerY" id="daM-g8-BBY"/>
+                            <constraint firstItem="H5f-rh-dGe" firstAttribute="leading" secondItem="lxJ-6y-THf" secondAttribute="trailing" constant="30" id="fId-Ht-wgF"/>
+                            <constraint firstAttribute="trailing" secondItem="ncm-eh-Fru" secondAttribute="trailing" constant="10" id="iFn-Be-PGe"/>
+                            <constraint firstItem="lxJ-6y-THf" firstAttribute="leading" secondItem="ctM-Sg-xzX" secondAttribute="trailing" constant="30" id="lBI-gp-yiZ"/>
+                            <constraint firstItem="2eg-eu-1Q1" firstAttribute="leading" secondItem="uww-1v-QoO" secondAttribute="leading" constant="16" id="p2T-pr-kho"/>
+                            <constraint firstItem="aJQ-wk-K3a" firstAttribute="leading" secondItem="uww-1v-QoO" secondAttribute="leading" constant="8" id="vTE-FE-nbQ"/>
+                            <constraint firstItem="e9U-c7-5fd" firstAttribute="top" secondItem="GAT-uu-Tob" secondAttribute="bottom" constant="50" id="zuq-gI-JRQ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="audioName" destination="e9U-c7-5fd" id="Yoj-EF-HNv"/>
+                        <outlet property="currentProgress" destination="aJQ-wk-K3a" id="mt4-sQ-qB8"/>
+                        <outlet property="leftProgress" destination="ncm-eh-Fru" id="xCz-95-pLd"/>
+                        <outlet property="nextBtn" destination="H5f-rh-dGe" id="f9o-7L-D2e"/>
                         <outlet property="playBtn" destination="lxJ-6y-THf" id="9NK-3d-yrW"/>
+                        <outlet property="preBtn" destination="ctM-Sg-xzX" id="4ss-cl-6xg"/>
+                        <outlet property="progress" destination="GAT-uu-Tob" id="6UJ-5D-RKG"/>
+                        <outlet property="singer" destination="2eg-eu-1Q1" id="StP-Dg-4YM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kw8-Y8-luc" userLabel="First Responder" sceneMemberID="firstResponder"/>
