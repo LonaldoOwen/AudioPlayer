@@ -101,8 +101,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         musicDurationTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(updateSliderValue), userInfo: nil, repeats: true)
         RunLoop.current.add(musicDurationTimer, forMode: RunLoopMode.commonModes)
         
-        // 注册通知（用于列表传值）
-        NotificationCenter.default.addObserver(self, selector: #selector(handelNotification), name: NSNotification.Name(rawValue: "PassIndex"), object: nil)
+        // 注册通知
+        registerForNotifications()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,9 +136,23 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func registerForNotifications() {
+        // 注册通知（用于列表传值）
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handelNotification),
+                                               name: NSNotification.Name(rawValue: "PassIndex"),
+                                               object: nil)
+        // 注册通知（用于处理interruption）
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handelInterruption),
+                                               name: .AVAudioSessionInterruption,
+                                               object: AVAudioSession.sharedInstance())
+    }
+    
     
     // 处理通知
-    @objc func handelNotification(_ notification: NSNotification) {
+    @objc
+    func handelNotification(_ notification: NSNotification) {
         print("handelNotification")
         currentIndex = notification.userInfo?["index"] as! Int
         print(currentIndex)
@@ -145,6 +160,32 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         audioTitle.text = audioList[currentIndex].audioName
 //        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
         playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+    }
+    
+    @objc
+    func handelInterruption(_ notification: Notification) {
+        // Handle interruption
+        guard let info = notification.userInfo,
+            let typeValue = info[AVAudioSessionInterruptionTypeKey] as? UInt,
+            let type = AVAudioSessionInterruptionType(rawValue: typeValue) else {
+                return
+        }
+        if type == .began {
+            // Interruption began, take appropriate actions (save state, update user interface)
+            print("Interruption began")
+            print("isPlaying: \(isPlaying)")    // true
+            
+        } else if type == .ended {
+            guard let optionsValue = info[AVAudioSessionInterruptionOptionKey] as? UInt else {
+                    return
+            }
+            let options = AVAudioSessionInterruptionOptions(rawValue: optionsValue)
+            if options.contains(.shouldResume) {
+                // Interruption Ended - playback should resume
+                print("Interruption ended")
+                print("isPlaying: \(isPlaying)")    // true
+            }
+        }
     }
     
 
