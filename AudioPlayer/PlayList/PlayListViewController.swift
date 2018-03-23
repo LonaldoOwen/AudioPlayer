@@ -5,6 +5,14 @@
 //  Created by owen on 17/7/17.
 //  Copyright © 2017年 owen. All rights reserved.
 //
+/// PlayListViewController
+/// 功能：音频列表
+///
+///
+///
+///
+
+
 
 import UIKit
 
@@ -54,7 +62,7 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // Do any additional setup after loading the view.
         
-        //
+        // 设置view的背景为灰色半透明
         view.backgroundColor = UIColor(red: 50/255.0, green: 50/255.0, blue: 50/255.0, alpha: 0.3)
         view.addSubview(backgroundView)
         
@@ -78,10 +86,10 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
         closeView.translatesAutoresizingMaskIntoConstraints = false
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(handleTap))
         closeView.addGestureRecognizer(tapGesture)
-        // 
+        // 设置布局约束
         setUpConstraints()
         
-        //
+        // 获取数据
         audioList = Helper.readPropertyList()
         
     }

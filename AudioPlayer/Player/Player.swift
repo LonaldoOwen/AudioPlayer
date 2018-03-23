@@ -5,9 +5,12 @@
 //  Created by owen on 17/8/13.
 //  Copyright © 2017年 owen. All rights reserved.
 //
-/**
- 功能：将AVAudioPlayer的操作放在一个class中
- */
+/// Player
+/// 功能：将AVAudioPlayer的操作放在一个class中
+///
+///
+///
+
 
 import Foundation
 import AVFoundation

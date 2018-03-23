@@ -5,6 +5,12 @@
 //  Created by owen on 17/7/9.
 //  Copyright © 2017年 owen. All rights reserved.
 //
+/// ViewController.swift
+/// 功能：音频播放主页面
+/// 
+///
+
+
 
 import UIKit
 import AVFoundation
