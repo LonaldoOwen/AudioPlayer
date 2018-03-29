@@ -12,6 +12,8 @@
 		231D7B421F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B3C1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3 */; };
 		231D7B431F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B3D1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 */; };
 		231D7B471F416CBC006A20E2 /* 白鹿原封面.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B461F416CBC006A20E2 /* 白鹿原封面.jpg */; };
+		5A0DDE52206D35B10085280D /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0DDE51206D35B10085280D /* Ji.framework */; };
+		5A0DDE55206D38040085280D /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0DDE54206D38040085280D /* ParseViewController.swift */; };
 		5A84ACE71F11E38D00FC0E9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84ACE61F11E38D00FC0E9A /* AppDelegate.swift */; };
 		5A84ACEC1F11E38D00FC0E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A84ACEA1F11E38D00FC0E9A /* Main.storyboard */; };
 		5A84ACEE1F11E38D00FC0E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A84ACED1F11E38D00FC0E9A /* Assets.xcassets */; };
@@ -100,6 +102,8 @@
 		231D7B3C1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3"; sourceTree = "<group>"; };
 		231D7B3D1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3"; sourceTree = "<group>"; };
 		231D7B461F416CBC006A20E2 /* 白鹿原封面.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "白鹿原封面.jpg"; sourceTree = "<group>"; };
+		5A0DDE51206D35B10085280D /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = Carthage/Build/iOS/Ji.framework; sourceTree = "<group>"; };
+		5A0DDE54206D38040085280D /* ParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		5A84ACE31F11E38D00FC0E9A /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A84ACE61F11E38D00FC0E9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A84ACEB1F11E38D00FC0E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A0DDE52206D35B10085280D /* Ji.framework in Frameworks */,
 				5A84ACFA1F11E4D900FC0E9A /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +250,7 @@
 		5A84ACF81F11E4D900FC0E9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A0DDE51206D35B10085280D /* Ji.framework */,
 				5A84ACF91F11E4D900FC0E9A /* AVFoundation.framework */,
 			);
 			name = Frameworks;
@@ -263,6 +269,7 @@
 			children = (
 				5AF8BBEB1F1A448900B97865 /* PlayerViewController.swift */,
 				5A97AA951F4064C900C534A0 /* TempViewController.swift */,
+				5A0DDE54206D38040085280D /* ParseViewController.swift */,
 			);
 			path = Temp;
 			sourceTree = "<group>";
@@ -380,6 +387,7 @@
 				5A84ACDF1F11E38D00FC0E9A /* Sources */,
 				5A84ACE01F11E38D00FC0E9A /* Frameworks */,
 				5A84ACE11F11E38D00FC0E9A /* Resources */,
+				5A0DDE53206D35E80085280D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -515,6 +523,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5A0DDE53206D35E80085280D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Ji.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5A84ACDF1F11E38D00FC0E9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -524,6 +549,7 @@
 				5A97AA911F3F467D00C534A0 /* Helper.swift in Sources */,
 				5AF8BBEC1F1A448900B97865 /* PlayerViewController.swift in Sources */,
 				5AEF97941F2252CE000E7628 /* PlayListViewController.swift in Sources */,
+				5A0DDE55206D38040085280D /* ParseViewController.swift in Sources */,
 				5A97AA931F4014F800C534A0 /* Player.swift in Sources */,
 				5A97AA961F4064C900C534A0 /* TempViewController.swift in Sources */,
 				5AEF97931F2252CE000E7628 /* PlayListTableViewCell.swift in Sources */,
@@ -650,6 +676,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KM6P947ZT3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AudioPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -664,6 +694,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = KM6P947ZT3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AudioPlayer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
