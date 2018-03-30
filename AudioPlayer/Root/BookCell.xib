@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookCell" rowHeight="97" id="FUs-Aa-JVe" customClass="BookCell" customModule="AudioPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FUs-Aa-JVe" id="Rux-Yh-Nnz">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMy-MP-JjN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7FE-BC-Uly">
+                                <rect key="frame" x="8" y="8" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="3aW-Zv-maP"/>
+                                    <constraint firstAttribute="width" constant="80" id="9iA-1B-6eC"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7FE-BC-Uly" secondAttribute="bottom" constant="16" id="FyV-dd-Hi1"/>
+                            <constraint firstItem="7FE-BC-Uly" firstAttribute="leading" secondItem="QMy-MP-JjN" secondAttribute="leading" constant="16" id="Hxu-fr-VjK"/>
+                            <constraint firstItem="7FE-BC-Uly" firstAttribute="top" secondItem="QMy-MP-JjN" secondAttribute="top" constant="16" id="ssi-yx-oQb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="QMy-MP-JjN" firstAttribute="leading" secondItem="Rux-Yh-Nnz" secondAttribute="leading" id="5Q5-B1-EF6"/>
+                    <constraint firstAttribute="trailing" secondItem="QMy-MP-JjN" secondAttribute="trailing" id="G9U-kW-d7k"/>
+                    <constraint firstItem="QMy-MP-JjN" firstAttribute="top" secondItem="Rux-Yh-Nnz" secondAttribute="top" id="HEX-sA-ga0"/>
+                    <constraint firstAttribute="bottom" secondItem="QMy-MP-JjN" secondAttribute="bottom" id="MgF-tE-ZnW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-68.5" y="70.5"/>
+        </tableViewCell>
+    </objects>
+</document>

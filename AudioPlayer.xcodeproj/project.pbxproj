@@ -12,6 +12,14 @@
 		231D7B421F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B3C1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3 */; };
 		231D7B431F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B3D1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 */; };
 		231D7B471F416CBC006A20E2 /* 白鹿原封面.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 231D7B461F416CBC006A20E2 /* 白鹿原封面.jpg */; };
+		23F1103B206E41E6009FAC19 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1103A206E41E6009FAC19 /* RootViewController.swift */; };
+		23F1103D206E4404009FAC19 /* BookListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1103C206E4404009FAC19 /* BookListTableViewController.swift */; };
+		23F1103F206E4442009FAC19 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1103E206E4442009FAC19 /* BookModel.swift */; };
+		23F11041206E4E25009FAC19 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F11040206E4E25009FAC19 /* BookCell.swift */; };
+		23F11043206E52F3009FAC19 /* ChapterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F11042206E52F3009FAC19 /* ChapterListTableViewController.swift */; };
+		23F11045206E5341009FAC19 /* ChapterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F11044206E5341009FAC19 /* ChapterListCell.swift */; };
+		23F11047206E563D009FAC19 /* image_mcnxs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23F11046206E563D009FAC19 /* image_mcnxs.jpg */; };
+		23F11049206E5966009FAC19 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F11048206E5966009FAC19 /* BookCell.xib */; };
 		5A0DDE52206D35B10085280D /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0DDE51206D35B10085280D /* Ji.framework */; };
 		5A0DDE55206D38040085280D /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0DDE54206D38040085280D /* ParseViewController.swift */; };
 		5A84ACE71F11E38D00FC0E9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84ACE61F11E38D00FC0E9A /* AppDelegate.swift */; };
@@ -102,6 +110,14 @@
 		231D7B3C1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 上.mp3"; sourceTree = "<group>"; };
 		231D7B3D1F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3"; sourceTree = "<group>"; };
 		231D7B461F416CBC006A20E2 /* 白鹿原封面.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "白鹿原封面.jpg"; sourceTree = "<group>"; };
+		23F1103A206E41E6009FAC19 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		23F1103C206E4404009FAC19 /* BookListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTableViewController.swift; sourceTree = "<group>"; };
+		23F1103E206E4442009FAC19 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		23F11040206E4E25009FAC19 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		23F11042206E52F3009FAC19 /* ChapterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListTableViewController.swift; sourceTree = "<group>"; };
+		23F11044206E5341009FAC19 /* ChapterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListCell.swift; sourceTree = "<group>"; };
+		23F11046206E563D009FAC19 /* image_mcnxs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_mcnxs.jpg; sourceTree = "<group>"; };
+		23F11048206E5966009FAC19 /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
 		5A0DDE51206D35B10085280D /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = Carthage/Build/iOS/Ji.framework; sourceTree = "<group>"; };
 		5A0DDE54206D38040085280D /* ParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		5A84ACE31F11E38D00FC0E9A /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +228,20 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
+		23F11039206E41CE009FAC19 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				23F1103A206E41E6009FAC19 /* RootViewController.swift */,
+				23F1103C206E4404009FAC19 /* BookListTableViewController.swift */,
+				23F11042206E52F3009FAC19 /* ChapterListTableViewController.swift */,
+				23F1103E206E4442009FAC19 /* BookModel.swift */,
+				23F11040206E4E25009FAC19 /* BookCell.swift */,
+				23F11048206E5966009FAC19 /* BookCell.xib */,
+				23F11044206E5341009FAC19 /* ChapterListCell.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		5A84ACDA1F11E38C00FC0E9A = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +267,7 @@
 				5AEF978B1F2252C3000E7628 /* Player */,
 				5AEF978E1F2252CE000E7628 /* PlayList */,
 				5A97AA941F40398000C534A0 /* Temp */,
+				23F11039206E41CE009FAC19 /* Root */,
 				5A84ACE61F11E38D00FC0E9A /* AppDelegate.swift */,
 				5A84ACFE1F12421200FC0E9A /* AudioList.plist */,
 				5A84ACEA1F11E38D00FC0E9A /* Main.storyboard */,
@@ -373,6 +404,7 @@
 				5AF8BCB01F1A793F00B97865 /* playing_volumn_sound_icon_h_b@2x.png */,
 				5AF8BCB11F1A793F00B97865 /* videoPoster_oringinal@2x.png */,
 				231D7B461F416CBC006A20E2 /* 白鹿原封面.jpg */,
+				23F11046206E563D009FAC19 /* image_mcnxs.jpg */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -455,6 +487,7 @@
 				5AF8BCF01F1A793F00B97865 /* playing_volumn_sound_icon_b@2x.png in Resources */,
 				5AF8BCD81F1A793F00B97865 /* player_btn_pause_normal@2x.png in Resources */,
 				5AF8BCE21F1A793F00B97865 /* player_btn_repeat_disable@2x.png in Resources */,
+				23F11049206E5966009FAC19 /* BookCell.xib in Resources */,
 				231D7B431F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 in Resources */,
 				5AF8BCBE1F1A793F00B97865 /* hp_player_progress_reverse@2x.png in Resources */,
 				5AF8BCF21F1A793F00B97865 /* playing_volumn_sound_icon_h_b@2x.png in Resources */,
@@ -508,6 +541,7 @@
 				5AF8BCC41F1A793F00B97865 /* list_play_pressed@2x.png in Resources */,
 				5AF8BCE91F1A793F00B97865 /* player_slider_playback_right@2x.png in Resources */,
 				5AF8BCD21F1A793F00B97865 /* miniplayer_btn_repeatone_normal_b@2x.png in Resources */,
+				23F11047206E563D009FAC19 /* image_mcnxs.jpg in Resources */,
 				5AF8BCF31F1A793F00B97865 /* videoPoster_oringinal@2x.png in Resources */,
 				5AF8BCE51F1A793F00B97865 /* player_btn_repeatone_disable@2x.png in Resources */,
 				5AF8BCC21F1A793F00B97865 /* icon_operate_play_pressed@2x.png in Resources */,
@@ -546,12 +580,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AEF978D1F2252C3000E7628 /* ViewController.swift in Sources */,
+				23F11043206E52F3009FAC19 /* ChapterListTableViewController.swift in Sources */,
 				5A97AA911F3F467D00C534A0 /* Helper.swift in Sources */,
+				23F11045206E5341009FAC19 /* ChapterListCell.swift in Sources */,
+				23F1103D206E4404009FAC19 /* BookListTableViewController.swift in Sources */,
 				5AF8BBEC1F1A448900B97865 /* PlayerViewController.swift in Sources */,
+				23F1103B206E41E6009FAC19 /* RootViewController.swift in Sources */,
 				5AEF97941F2252CE000E7628 /* PlayListViewController.swift in Sources */,
+				23F1103F206E4442009FAC19 /* BookModel.swift in Sources */,
 				5A0DDE55206D38040085280D /* ParseViewController.swift in Sources */,
 				5A97AA931F4014F800C534A0 /* Player.swift in Sources */,
 				5A97AA961F4064C900C534A0 /* TempViewController.swift in Sources */,
+				23F11041206E4E25009FAC19 /* BookCell.swift in Sources */,
 				5AEF97931F2252CE000E7628 /* PlayListTableViewCell.swift in Sources */,
 				5AEF97921F2252CE000E7628 /* AudioModel.swift in Sources */,
 				5A84ACE71F11E38D00FC0E9A /* AppDelegate.swift in Sources */,

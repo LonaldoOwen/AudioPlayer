@@ -19,15 +19,38 @@ class ParseViewController: UIViewController {
         // 验证parser的使用
         // http://www.5tps.com/play/6931_52_1_1.html
         // 这个url为什么解析不了？？？
-        let baseUrlString = "http://www.5tps.com"
-        let baidu = "http://news.cctv.com/2018/03/29/ARTIXM90XGYuzQ5CRvLBNmqT180329.shtml"
-        let xPath = "//*[@id=\"jp_audio_0\"]"
+        //let baseUrlString = "http://www.5tps.com/play/6931_52_1_1.html"
+        //let baidu = "http://news.cctv.com/2018/03/29/ARTIXM90XGYuzQ5CRvLBNmqT180329.shtml"
+        //let xPath = "//*[@id=\"jp_audio_0\"]"
         
+//        let baseUrlString = "http://www.ysts8.com/play_6751_52_1_2.html"
+//        let xPath = "//*[@id=\"jp_audio_0\"]"
+//        let iframeXPath = "//*[@id=\"play\"]"
+//
+//        let jiDoc = Ji(htmlURL: URL(string: baseUrlString)!)
+//        let mp3Node = jiDoc?.xPath(xPath)
+//        let iframeNode = jiDoc?.xPath(iframeXPath)
+//        if let iframeNode = iframeNode?.first {
+//            let iframeUrlString = iframeNode["src"]
+//            print(iframeUrlString!)
+//
+//            let iframeDoc = Ji(htmlURL: URL.init(string: iframeUrlString!)!)
+//            let mp3Node = jiDoc?.xPath(xPath)
+//            print(mp3Node!)
+//        }
+        
+        let baseUrlString = "http://www.zgpingshu.com/down/3608/7.html"
+        let xPath = "//*[@id=\"down\"]"
         let jiDoc = Ji(htmlURL: URL(string: baseUrlString)!)
+        //let htmlNode = jiDoc?.rootNode
         let mp3Node = jiDoc?.xPath(xPath)
-        print("\(String(describing: mp3Node))")
+        let urlString = mp3Node?.first!["href"]
         
         
+        print("\(String(describing: urlString))")
+        
+        let mp3UrlString = Helper.parseHTML(withUrl: URL.init(string: baseUrlString)!, xPath: xPath, attribute: "href")
+        print(mp3UrlString!)
         
     }
 
