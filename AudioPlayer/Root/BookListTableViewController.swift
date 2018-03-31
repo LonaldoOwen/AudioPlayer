@@ -28,6 +28,9 @@ class BookListTableViewController: UITableViewController {
         // 构造数据
         createData()
         
+        // 注册自定义cell（这样tableView才会在dequeue前按你的自定义cell样式初始化cell）
+        self.tableView.register(BookCell.self, forCellReuseIdentifier: "BookCell")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,11 +38,12 @@ class BookListTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,18 +58,26 @@ class BookListTableViewController: UITableViewController {
 
         // Configure the cell...
         let book = books[indexPath.row]
-        
+        cell.model = book
 
         return cell
     }
+    
+    
+    // MARK: - Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chapterListVC: ChapterListTableViewController = self.storyboard?.instantiateViewController(withIdentifier: ChapterListTableViewController.reuseIdentifier) as! ChapterListTableViewController
+        // 传值
+        chapterListVC.book = books[indexPath.row]
+        self.show(chapterListVC, sender: nil)
+    }
  
     
-    
-    
-    // MARK: -Helper
+    // MARK: - Helper
     
     func createData() {
-        let mcnxsBook = Book.init(name: "明朝那些事er", author: "当年明月", reader: "王更新", imageString: "image_mcnxs.jpg", count: 268, baseUrlString: "http://www.zgpingshu.com/down/3608/")
+        let mcnxsBook = Book.init(name: "明朝那些事儿", author: "当年明月", reader: "王更新", imageString: "image_mcnxs.jpg", count: 268, baseUrlString: "http://www.zgpingshu.com/down/3608/")
         books = [mcnxsBook]
     }
     

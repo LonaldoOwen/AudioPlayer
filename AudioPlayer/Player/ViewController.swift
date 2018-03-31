@@ -19,7 +19,8 @@ import MediaPlayer
 
 class ViewController: UIViewController, AVAudioPlayerDelegate {
     
-    /// outlet
+    // MARK: - IBOutlet
+    
     @IBOutlet var audioTitle: UILabel!
     @IBOutlet var singer: UILabel!
     @IBOutlet weak var cover: UIImageView!
@@ -31,7 +32,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet var currentProgress: UILabel!
     @IBOutlet var leftProgress: UILabel!
     
-    /// properties
+    
+    // MARK: - Properties
+    
     var isPlaying: Bool = false
     var currentIndex: Int = 0
     var audioPlayer: AVAudioPlayer?
@@ -39,38 +42,18 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     var musicDurationTimer: Timer!
 
     
+    // MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("ViewController: viewDidLoad")
         
-        //
-        self.title = "AudioPlayer"
-        audioTitle.textColor = UIColor.white
-        singer.textColor = UIColor.white
-        
+        // 获取数据(本地)
         audioList = Helper.readPropertyList()
         
-        //
-        /**
-         问题：1、tile使用的是url；2、中文未解析
-         */
-        audioTitle.text = audioList.first?.audioName
-        singer.text = audioList.first?.musician
-        self.cover.image = UIImage(named: "白鹿原封面.jpg")
-        
-        // buttons
-        self.playBtn.adjustsImageWhenHighlighted = false
-        
-        // progress
-        progress.setMinimumTrackImage(UIImage(named: "player_slider_playback_left"), for: .normal)
-        progress.setMaximumTrackImage(UIImage(named: "player_slider_playback_right"), for: .normal)
-        progress.setThumbImage(UIImage(named: "player_slider_playback_thumb"), for: .normal)
-        
-        // progress slider
-        progress.minimumValue = 0
-        progress.maximumValue = 1.0
-        progress.value = 0.0
+        // UI setup
+        setupUI()
         
         // audio player
 //        let url = URL(fileURLWithPath: Bundle.main.path(forResource: audioList.first?.audioName, ofType: audioList.first?.audioType)!)
@@ -88,14 +71,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         playAudio(forResource: (audioList.first?.audioName)!, ofType: (audioList.first?.audioType)!)
         
         // 注册后台播放，配置audio session
-        let session = AVAudioSession.sharedInstance()
-        do {
-            // Configure the audio session for music playback
-            try session.setCategory(AVAudioSessionCategoryPlayback)
-            try session.setActive(true)
-        } catch let error as NSError {
-            print("Failed to set the audio session category and mode: \(error.localizedDescription)")
-        }
+        registerBackgroundPlayback()
         
         // MPRemoteCommandCenter
         //lockScreenControlUsingMPRemoteCommandCenter()
@@ -103,12 +79,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         // 设置锁屏歌曲信息
         setLockScreenMusicInfo()
         
+        // 注册通知
+        registerForNotifications()
+        
         // timer
         musicDurationTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(updateSliderValue), userInfo: nil, repeats: true)
         RunLoop.current.add(musicDurationTimer, forMode: RunLoopMode.commonModes)
-        
-        // 注册通知
-        registerForNotifications()
         
     }
     
@@ -118,7 +94,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         print("ViewController: viewDidAppear")
-        // 接收远程事件
+        // 开始接收远程事件
         UIApplication.shared.beginReceivingRemoteControlEvents()
         self.becomeFirstResponder()
     }
@@ -132,27 +108,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         print("ViewController: viewDidDisappear")
+        // 结束接收远程事件
         UIApplication.shared.endReceivingRemoteControlEvents()
         self.resignFirstResponder()
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func registerForNotifications() {
-        // 注册通知（用于列表传值）
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(handelNotification),
-                                               name: NSNotification.Name(rawValue: "PassIndex"),
-                                               object: nil)
-        // 注册通知（用于处理interruption）
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(handelInterruption),
-                                               name: .AVAudioSessionInterruption,
-                                               object: AVAudioSession.sharedInstance())
     }
     
     
@@ -195,13 +158,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
 
-    /// MARK: actions
+    // MARK: actions
+    
     // 调整进度
     @IBAction func ajustProgress(_ sender: UISlider) {
         print("ajustProgress")
         audioPlayer?.currentTime = Double(sender.value) * (audioPlayer?.duration)!
         updateProgressLabelValue()
     }
+    
     // 音量
     @IBAction func ajustVolume(_ sender: Any) {
         if audioPlayer != nil {
@@ -230,6 +195,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             playBtn.setBackgroundImage(UIImage(named: "player_btn_pause_highlight"), for: .highlighted)
         }
     }
+    
     // playback(toggle play and pause)
     @IBAction func playAudio(_ sender: Any) {
         print("playAudio")
@@ -242,6 +208,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         }
         isPlaying = isPlaying ? false : true
     }
+    
     // 上一首
     @IBAction func playPre(_ sender: Any) {
         print("// 上一首")
@@ -257,6 +224,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
         setLockScreenMusicInfo()
     }
+    
     // 下一首
     @IBAction func playNext(_ sender: Any) {
         print("// 下一首")
@@ -300,6 +268,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             player.stop()
         }
     }
+    
     // 更新slider
     @objc
     func updateSliderValue(_ timer: Any) {
@@ -313,6 +282,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             updateProgressLabelValue()
         }
     }
+    
     // 更新progress label
     func updateProgressLabelValue() {
         if let player = audioPlayer {
@@ -322,31 +292,84 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     
-    /// MARK: AVAudioPlayerDelegate
+    // MARK: - AVAudioPlayerDelegate
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         //
         print("audioPlayerDidFinishPlaying")
         /**
          问题：播放第一首结束可以进入此方法中；第二首就不进了？？？
-         原因：
+         原因：？？？
          解决：将实例化AVAudioPlayer抽象成方法后，可以（？？？）
         */
         if flag {
             playNext(nextBtn)
         }
     }
+    
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         //
         print("audioPlayerDecodeErrorDidOccur")
     }
+    
     func audioPlayerBeginInterruption(_ player: AVAudioPlayer) {
         //
         print("audioPlayerBeginInterruption")
     }
     
     
-    /// MARK: helper
+    // MARK: - Helper
+    
+    func setupUI() {
+        self.title = "AudioPlayer"
+        audioTitle.textColor = UIColor.white
+        singer.textColor = UIColor.white
+        //
+        /**
+         问题：1、tile使用的是url；2、中文未解析
+         */
+        audioTitle.text = audioList.first?.audioName
+        singer.text = audioList.first?.musician
+        self.cover.image = UIImage(named: "白鹿原封面.jpg")
+        // buttons
+        self.playBtn.adjustsImageWhenHighlighted = false
+        
+        // progress
+        progress.setMinimumTrackImage(UIImage(named: "player_slider_playback_left"), for: .normal)
+        progress.setMaximumTrackImage(UIImage(named: "player_slider_playback_right"), for: .normal)
+        progress.setThumbImage(UIImage(named: "player_slider_playback_thumb"), for: .normal)
+        
+        // progress slider
+        progress.minimumValue = 0
+        progress.maximumValue = 1.0
+        progress.value = 0.0
+    }
+    
+    // 注册后台播放，配置audio session
+    func registerBackgroundPlayback() {
+        let session = AVAudioSession.sharedInstance()
+        do {
+            // Configure the audio session for music playback
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+            try session.setActive(true)
+        } catch let error as NSError {
+            print("Failed to set the audio session category and mode: \(error.localizedDescription)")
+        }
+    }
+    
+    // 注册通知
+    func registerForNotifications() {
+        // 注册通知（用于列表传值）
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handelNotification),
+                                               name: NSNotification.Name(rawValue: "PassIndex"),
+                                               object: nil)
+        // 注册通知（用于处理interruption）
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handelInterruption),
+                                               name: .AVAudioSessionInterruption,
+                                               object: AVAudioSession.sharedInstance())
+    }
     
     // 生成mp3的URL(用于实例化AVAusioPlayer)
 //    func getUrl(_ audio: AudioModel) -> URL {

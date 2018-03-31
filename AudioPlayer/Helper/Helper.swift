@@ -71,7 +71,7 @@ extension Helper {
         let jiDoc = Ji.init(htmlURL: url)
         let mp3Node = jiDoc?.xPath(xPath)
         let mp3UrlString = mp3Node?.first![attribute]
-        
+        print("mp3UrlString: \(String(describing: mp3UrlString))")
         return mp3UrlString
     }
 }

@@ -19,7 +19,7 @@
 		23F11043206E52F3009FAC19 /* ChapterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F11042206E52F3009FAC19 /* ChapterListTableViewController.swift */; };
 		23F11045206E5341009FAC19 /* ChapterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F11044206E5341009FAC19 /* ChapterListCell.swift */; };
 		23F11047206E563D009FAC19 /* image_mcnxs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23F11046206E563D009FAC19 /* image_mcnxs.jpg */; };
-		23F11049206E5966009FAC19 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F11048206E5966009FAC19 /* BookCell.xib */; };
+		23F11049206E5966009FAC19 /* ChapterListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F11048206E5966009FAC19 /* ChapterListCell.xib */; };
 		5A0DDE52206D35B10085280D /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0DDE51206D35B10085280D /* Ji.framework */; };
 		5A0DDE55206D38040085280D /* ParseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0DDE54206D38040085280D /* ParseViewController.swift */; };
 		5A84ACE71F11E38D00FC0E9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A84ACE61F11E38D00FC0E9A /* AppDelegate.swift */; };
@@ -117,7 +117,7 @@
 		23F11042206E52F3009FAC19 /* ChapterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListTableViewController.swift; sourceTree = "<group>"; };
 		23F11044206E5341009FAC19 /* ChapterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListCell.swift; sourceTree = "<group>"; };
 		23F11046206E563D009FAC19 /* image_mcnxs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_mcnxs.jpg; sourceTree = "<group>"; };
-		23F11048206E5966009FAC19 /* BookCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
+		23F11048206E5966009FAC19 /* ChapterListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChapterListCell.xib; sourceTree = "<group>"; };
 		5A0DDE51206D35B10085280D /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = Carthage/Build/iOS/Ji.framework; sourceTree = "<group>"; };
 		5A0DDE54206D38040085280D /* ParseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseViewController.swift; sourceTree = "<group>"; };
 		5A84ACE31F11E38D00FC0E9A /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,8 +236,8 @@
 				23F11042206E52F3009FAC19 /* ChapterListTableViewController.swift */,
 				23F1103E206E4442009FAC19 /* BookModel.swift */,
 				23F11040206E4E25009FAC19 /* BookCell.swift */,
-				23F11048206E5966009FAC19 /* BookCell.xib */,
 				23F11044206E5341009FAC19 /* ChapterListCell.swift */,
+				23F11048206E5966009FAC19 /* ChapterListCell.xib */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -487,7 +487,7 @@
 				5AF8BCF01F1A793F00B97865 /* playing_volumn_sound_icon_b@2x.png in Resources */,
 				5AF8BCD81F1A793F00B97865 /* player_btn_pause_normal@2x.png in Resources */,
 				5AF8BCE21F1A793F00B97865 /* player_btn_repeat_disable@2x.png in Resources */,
-				23F11049206E5966009FAC19 /* BookCell.xib in Resources */,
+				23F11049206E5966009FAC19 /* ChapterListCell.xib in Resources */,
 				231D7B431F416825006A20E2 /* 《红楼梦》第二十六回 蜂腰桥设言传心事 潇湘馆春困发幽情 下.mp3 in Resources */,
 				5AF8BCBE1F1A793F00B97865 /* hp_player_progress_reverse@2x.png in Resources */,
 				5AF8BCF21F1A793F00B97865 /* playing_volumn_sound_icon_h_b@2x.png in Resources */,
