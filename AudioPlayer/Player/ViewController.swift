@@ -19,6 +19,8 @@ import MediaPlayer
 
 class ViewController: UIViewController, AVAudioPlayerDelegate {
     
+    static let reuseIdentifier = "PlayVC"
+    
     // MARK: - IBOutlet
     
     @IBOutlet var audioTitle: UILabel!
@@ -40,6 +42,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     var audioPlayer: AVAudioPlayer?
     var audioList: [AudioModel]!
     var musicDurationTimer: Timer!
+    
+    // AVKit
+    var book: Book!
+    var chapter: Chapter!
+    var chapters: [Chapter]!
+    var moplayer: MOAVPlayer!
+    
 
     
     // MARK: - Life cycle
@@ -68,7 +77,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         /**
          将实例化AVAudioPlayer抽象成方法
          */
-        playAudio(forResource: (audioList.first?.audioName)!, ofType: (audioList.first?.audioType)!)
+        //playAudio(forResource: (audioList.first?.audioName)!, ofType: (audioList.first?.audioType)!)
+        moplayer = MOAVPlayer()
         
         // 注册后台播放，配置audio session
         registerBackgroundPlayback()
@@ -77,7 +87,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         //lockScreenControlUsingMPRemoteCommandCenter()
         
         // 设置锁屏歌曲信息
-        setLockScreenMusicInfo()
+        //setLockScreenMusicInfo()
         
         // 注册通知
         registerForNotifications()
@@ -119,7 +129,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     
-    // 处理通知
+    // MARK: - Handle notifications 处理通知
+    
     @objc
     func handelNotification(_ notification: NSNotification) {
         print("handelNotification")
@@ -234,40 +245,17 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             currentIndex = 0
         }
         playerStop()
+        //playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+        
+        //
+        moplayer.player(withChapter: chapters[currentIndex])
+        
         audioTitle.text = audioList[currentIndex].audioName
         singer.text = audioList[currentIndex].musician
 //        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
-        playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
-        setLockScreenMusicInfo()
+        //setLockScreenMusicInfo()
     }
     
-    // 播放
-    func playerPlay() {
-        // change button image from play to pasue
-        playBtn.setBackgroundImage(UIImage(named: "player_btn_pause_normal"), for: .normal)
-        // play
-        if let player = audioPlayer {
-            player.play()
-        }
-    }
-    // 暂停
-    func playerPause() {
-        // change button image from psuse to play
-        playBtn.setBackgroundImage(UIImage(named: "player_btn_play_normal"), for: .normal)
-        // pause
-        if let player = audioPlayer {
-            player.pause()
-        }
-    }
-    // 停止
-    func playerStop() {
-        // change button image from pause to play
-        playBtn.setBackgroundImage(UIImage(named: "player_btn_play_normal"), for: .normal)
-        // stop
-        if let player = audioPlayer {
-            player.stop()
-        }
-    }
     
     // 更新slider
     @objc
@@ -378,6 +366,41 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 //        return url
 //    }
     
+    // 播放
+    func playerPlay() {
+        // change button image from play to pasue
+        playBtn.setBackgroundImage(UIImage(named: "player_btn_pause_normal"), for: .normal)
+        // play
+        if let player = audioPlayer {
+            player.play()
+        }
+        if let moplayer = moplayer {
+            moplayer.player(withChapter: chapters[currentIndex])
+            moplayer.play()
+        }
+    }
+    // 暂停
+    func playerPause() {
+        // change button image from psuse to play
+        playBtn.setBackgroundImage(UIImage(named: "player_btn_play_normal"), for: .normal)
+        // pause
+        if let player = audioPlayer {
+            player.pause()
+        }
+        if let moplayer = moplayer {
+            moplayer.pause()
+        }
+    }
+    // 停止
+    func playerStop() {
+        // change button image from pause to play
+        playBtn.setBackgroundImage(UIImage(named: "player_btn_play_normal"), for: .normal)
+        // stop
+        if let player = audioPlayer {
+            player.stop()
+        }
+    }
+    
     // 播放audio实例
     func playAudio(forResource name: String, ofType ext: String) {
         let path = Bundle.main.path(forResource: name, ofType: ext)
@@ -396,6 +419,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         }
 
     }
+    
+    
+    // MARK: - lock screen play
     
     // 设置锁屏显示歌曲信息（包括锁屏和控制中心）
     func setLockScreenMusicInfo() {

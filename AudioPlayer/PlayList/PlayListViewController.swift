@@ -54,8 +54,15 @@ class PlayListViewController: UIViewController, UITableViewDataSource, UITableVi
         return one
     }()
     
+    
+    // Properties
+    
     var audioList: [AudioModel]?
     var indexToPlay: Int = 0
+    
+    //
+    var book: Book!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

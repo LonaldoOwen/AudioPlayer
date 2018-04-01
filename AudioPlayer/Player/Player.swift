@@ -8,7 +8,9 @@
 /// Player
 /// 功能：将AVAudioPlayer的操作放在一个class中
 ///
-///
+/// 问题：
+/// 1、不优雅，缺少error、nil等情况的处理；
+/// 2、
 ///
 
 
@@ -29,24 +31,27 @@ class Player: NSObject, AVAudioPlayerDelegate {
     var audioPlayer: AVAudioPlayer?
     var delegate: PlayerDelegate?
     
+    
     /// methods
     
     // 播放
-    func playerPlay() {
+    func play() {
         // play
         if let player = audioPlayer {
             player.play()
         }
     }
+    
     // 暂停
-    func playerPause() {
+    func pause() {
         // pause
         if let player = audioPlayer {
             player.pause()
         }
     }
+    
     // 停止
-    func playerStop() {
+    func stop() {
         // stop
         if let player = audioPlayer {
             player.stop()
@@ -54,6 +59,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
     }
     
     // 播放audio实例
+    // 可以使用类方法
     func playAudio(_ model: AudioModel) {
         
         audioPlayer?.delegate = nil

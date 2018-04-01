@@ -133,7 +133,7 @@ class PlayerViewController: UIViewController, PlayerDelegate {
         singer.text = audioList[currentIndex].musician
         player?.playAudio(audioList[currentIndex])
         if isPlayingSb {
-            player?.playerPlay()
+            player?.play()
         }
     }
     // 下一曲
@@ -149,7 +149,7 @@ class PlayerViewController: UIViewController, PlayerDelegate {
         singer.text = audioList[currentIndex].musician
         player?.playAudio(audioList[currentIndex])
         if isPlayingSb {
-            player?.playerPlay()
+            player?.play()
         }
     }
     // 调整进度

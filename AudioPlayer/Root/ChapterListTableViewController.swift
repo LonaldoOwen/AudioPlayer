@@ -70,10 +70,17 @@ class ChapterListTableViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let parserVC: ParseViewController = self.storyboard?.instantiateViewController(withIdentifier: ParseViewController.reuseIdentifier) as! ParseViewController
-        parserVC.book = book
-        parserVC.chapter = chapters[indexPath.row]
-        self.show(parserVC, sender: nil)
+//        let parserVC: ParseViewController = self.storyboard?.instantiateViewController(withIdentifier: ParseViewController.reuseIdentifier) as! ParseViewController
+//        parserVC.book = book
+//        parserVC.chapter = chapters[indexPath.row]
+//        self.show(parserVC, sender: nil)
+        
+        // show PlayVC
+        let playVC: ViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewController.reuseIdentifier) as! ViewController
+        playVC.currentIndex = indexPath.row
+        playVC.book = book
+        playVC.chapters = chapters
+        self.show(playVC, sender: nil)
     }
 
     
