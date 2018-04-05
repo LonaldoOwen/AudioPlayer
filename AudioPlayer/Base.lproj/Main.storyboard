@@ -150,7 +150,157 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1475.625" y="138.38028169014083"/>
+            <point key="canvasLocation" x="1463" y="138"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="GRP-cy-qo1">
+            <objects>
+                <viewController storyboardIdentifier="AVPlayerVC" id="W0A-2C-igY" customClass="PlayerViewController" customModule="AudioPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a9v-cN-UoW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IOL-eh-gMo" userLabel="ContentView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QmU-CR-hj3">
+                                        <rect key="frame" x="60" y="60" width="200.5" height="271"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rFx-81-odt">
+                                                <rect key="frame" x="57" y="0.0" width="87" height="51"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTI-P0-WAP">
+                                                        <rect key="frame" x="26.5" y="0.0" width="33.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朗读：水清" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-lb-g0x">
+                                                        <rect key="frame" x="0.0" y="30.5" width="87" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoPoster_oringinal.png" translatesAutoresizingMaskIntoConstraints="NO" id="dpZ-Gc-tri">
+                                                <rect key="frame" x="0.0" y="71" width="200.5" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="8sh-vc-nhg"/>
+                                                    <constraint firstAttribute="width" constant="200" id="d4X-nQ-RNx"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OxC-Xq-Jky">
+                                        <rect key="frame" x="10" y="375" width="300" height="173"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Act-0Z-m84">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L03-xh-r9W">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8lS-un-lWE">
+                                                        <rect key="frame" x="36" y="0.0" width="216" height="31"/>
+                                                        <connections>
+                                                            <action selector="ajustProgress:" destination="W0A-2C-igY" eventType="valueChanged" id="Mr9-aV-ACN"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7a-Vk-cAc">
+                                                        <rect key="frame" x="254" y="0.0" width="46" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="elm-5B-2Qt">
+                                                <rect key="frame" x="0.0" y="50" width="300" height="64"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlY-iR-C7p" userLabel="Repeat">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="64"/>
+                                                        <state key="normal" backgroundImage="player_btn_repeat_normal.png"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLt-WH-XHy" userLabel="Pre">
+                                                        <rect key="frame" x="54" y="0.0" width="64" height="64"/>
+                                                        <state key="normal" backgroundImage="player_btn_pre_normal.png"/>
+                                                        <connections>
+                                                            <action selector="playPre:" destination="W0A-2C-igY" eventType="touchUpInside" id="cp0-er-ebI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Nn-SR-ZSS" userLabel="Play">
+                                                        <rect key="frame" x="122" y="0.0" width="56" height="64"/>
+                                                        <state key="normal" backgroundImage="player_btn_play_normal.png"/>
+                                                        <connections>
+                                                            <action selector="handlePlayTouchDown:" destination="W0A-2C-igY" eventType="touchDown" id="hfi-qt-mE1"/>
+                                                            <action selector="playAudio:" destination="W0A-2C-igY" eventType="touchUpInside" id="nc7-1r-tAr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goc-Rr-1jJ" userLabel="Next">
+                                                        <rect key="frame" x="182" y="0.0" width="64" height="64"/>
+                                                        <state key="normal" backgroundImage="player_btn_next_normal.png"/>
+                                                        <connections>
+                                                            <action selector="playNext:" destination="W0A-2C-igY" eventType="touchUpInside" id="ZLx-U4-M0w"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Re-u1-YUG" userLabel="PlayList">
+                                                        <rect key="frame" x="250" y="0.0" width="50" height="64"/>
+                                                        <state key="normal" backgroundImage="player_btn_playlist_normal.png"/>
+                                                        <connections>
+                                                            <action selector="showPlayList:" destination="W0A-2C-igY" eventType="touchUpInside" id="FmP-Qh-nEe"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="playing_volumn_slide_sound_little_icon_h_b.png" maximumValueImage="playing_volumn_sound_icon_h_b.png" translatesAutoresizingMaskIntoConstraints="NO" id="3ta-MZ-nfY">
+                                                <rect key="frame" x="-2" y="134" width="304" height="40"/>
+                                                <color key="minimumTrackTintColor" red="0.2156862745" green="0.72549019609999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="ajustVolume:" destination="W0A-2C-igY" eventType="valueChanged" id="mA4-aB-TdF"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="OxC-Xq-Jky" secondAttribute="bottom" constant="20" id="B6i-Bo-gh4"/>
+                                    <constraint firstAttribute="trailing" secondItem="OxC-Xq-Jky" secondAttribute="trailing" constant="10" id="Hth-ze-MjX"/>
+                                    <constraint firstItem="OxC-Xq-Jky" firstAttribute="leading" secondItem="IOL-eh-gMo" secondAttribute="leading" constant="10" id="Ofi-In-951"/>
+                                    <constraint firstItem="QmU-CR-hj3" firstAttribute="top" secondItem="IOL-eh-gMo" secondAttribute="top" constant="60" id="mkb-tE-hSK"/>
+                                    <constraint firstItem="QmU-CR-hj3" firstAttribute="centerX" secondItem="IOL-eh-gMo" secondAttribute="centerX" id="nUe-i6-lyd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IOL-eh-gMo" firstAttribute="trailing" secondItem="1Fy-q3-GLb" secondAttribute="trailing" id="3ZP-Dv-gNq"/>
+                            <constraint firstItem="IOL-eh-gMo" firstAttribute="top" secondItem="a9v-cN-UoW" secondAttribute="top" id="Tsu-zQ-v0F"/>
+                            <constraint firstItem="IOL-eh-gMo" firstAttribute="bottom" secondItem="1Fy-q3-GLb" secondAttribute="bottom" id="jcA-Nk-wMw"/>
+                            <constraint firstItem="IOL-eh-gMo" firstAttribute="leading" secondItem="1Fy-q3-GLb" secondAttribute="leading" id="pJQ-la-DZD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Fy-q3-GLb"/>
+                    </view>
+                    <connections>
+                        <outlet property="audioTitle" destination="WTI-P0-WAP" id="KYz-gv-0zt"/>
+                        <outlet property="cover" destination="dpZ-Gc-tri" id="xTK-5W-lpV"/>
+                        <outlet property="currentTimeLabel" destination="L03-xh-r9W" id="nja-or-zzb"/>
+                        <outlet property="nextBtn" destination="goc-Rr-1jJ" id="peX-zz-B06"/>
+                        <outlet property="playBtn" destination="9Nn-SR-ZSS" id="wXd-wM-3wP"/>
+                        <outlet property="preBtn" destination="VLt-WH-XHy" id="Mcx-I8-4Sf"/>
+                        <outlet property="progress" destination="8lS-un-lWE" id="a19-4a-4ve"/>
+                        <outlet property="singer" destination="0jb-lb-g0x" id="T4P-Ft-EWU"/>
+                        <outlet property="totalTimeLabel" destination="b7a-Vk-cAc" id="lRR-Tj-ItK"/>
+                        <outlet property="volumeControl" destination="3ta-MZ-nfY" id="IyR-eP-OAK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jGj-OT-1DX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2238.75" y="135.21126760563379"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="3V4-jB-417">

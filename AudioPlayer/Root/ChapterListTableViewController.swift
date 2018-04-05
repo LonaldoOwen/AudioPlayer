@@ -70,17 +70,15 @@ class ChapterListTableViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let parserVC: ParseViewController = self.storyboard?.instantiateViewController(withIdentifier: ParseViewController.reuseIdentifier) as! ParseViewController
-//        parserVC.book = book
-//        parserVC.chapter = chapters[indexPath.row]
-//        self.show(parserVC, sender: nil)
+        
+        // show parserVC
+        //showParserVC(with: indexPath)
         
         // show PlayVC
-        let playVC: ViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewController.reuseIdentifier) as! ViewController
-        playVC.currentIndex = indexPath.row
-        playVC.book = book
-        playVC.chapters = chapters
-        self.show(playVC, sender: nil)
+        //showAVAudioPlayerVC(with: indexPath)
+        
+        // show AVPlayerVC
+        showAVPlayerVC(with: indexPath)
     }
 
     
@@ -97,6 +95,36 @@ class ChapterListTableViewController: UITableViewController {
             tempChapters.append(chapter)
         }
         chapters = tempChapters
+    }
+    
+    func showParserVC(with indexPath: IndexPath) {
+        let parserVC: ParseViewController = self.storyboard?.instantiateViewController(withIdentifier: ParseViewController.reuseIdentifier) as! ParseViewController
+        parserVC.book = book
+        parserVC.chapter = chapters[indexPath.row]
+        self.show(parserVC, sender: nil)
+    }
+    
+    func showAVAudioPlayerVC(with indexPath: IndexPath) {
+        let playVC: ViewController = self.storyboard?.instantiateViewController(withIdentifier: ViewController.reuseIdentifier) as! ViewController
+        playVC.currentIndex = indexPath.row
+        playVC.book = book
+        print("Before pass chapters .")
+        playVC.chapters = chapters
+        print("After pass chapters.")
+        self.show(playVC, sender: nil)
+    }
+    
+    func showAVPlayerVC(with indexPath: IndexPath) {
+        let avplayerVC: PlayerViewController = self.storyboard?.instantiateViewController(withIdentifier: PlayerViewController.reuseIdentifier) as! PlayerViewController
+        avplayerVC.currentIndex = indexPath.row
+        avplayerVC.book = book
+        print("Before pass chapters .")
+        avplayerVC.chapters = chapters
+        print("After pass chapters.")
+        avplayerVC.modalPresentationStyle = .fullScreen
+        avplayerVC.modalTransitionStyle = .coverVertical
+        self.present(avplayerVC, animated: true, completion: nil)
+        //self.show(avplayerVC, sender: nil)
     }
     
 

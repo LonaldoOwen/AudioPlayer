@@ -23,9 +23,12 @@ class MOAVPlayer: NSObject {
     
     // MARK: Properties
     
-    var asset: AVPlayer!
+    var asset: AVAsset!
     var playItem: AVPlayerItem!
     var player: AVPlayer!
+    
+    // Type property（Swift的Singleton写法）
+    static let sharedMOAVPlayer = MOAVPlayer()
     
     
     // MARK: Methods
@@ -45,11 +48,11 @@ class MOAVPlayer: NSObject {
     }
     
     // stop
-    func stop() {
-        if let player = player {
-            // AVPlayer没有stop方法
-        }
-    }
+//    func stop() {
+//        if let player = player {
+//            // AVPlayer没有stop方法
+//        }
+//    }
     
     // 创建AVPlayer实例
     func player(withUrl url: URL) {
@@ -81,9 +84,6 @@ class MOAVPlayer: NSObject {
     }
 
 }
-
-
-
 
 
 

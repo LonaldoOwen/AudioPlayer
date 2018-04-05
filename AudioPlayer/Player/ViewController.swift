@@ -48,6 +48,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     var chapter: Chapter!
     var chapters: [Chapter]!
     var moplayer: MOAVPlayer!
+    var currentPlayerItem: AVPlayerItem!
     
 
     
@@ -63,6 +64,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         
         // UI setup
         setupUI()
+        updatePlayerUI()
         
         // audio player
 //        let url = URL(fileURLWithPath: Bundle.main.path(forResource: audioList.first?.audioName, ofType: audioList.first?.audioType)!)
@@ -78,7 +80,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
          将实例化AVAudioPlayer抽象成方法
          */
         //playAudio(forResource: (audioList.first?.audioName)!, ofType: (audioList.first?.audioType)!)
-        moplayer = MOAVPlayer()
+        
+        /// 问题：未使用单例时，返回列表播放新的audio，会同时播放两个audio
+        /// 原因：
+        /// 解决：使用singleton
+        //moplayer = MOAVPlayer()
+        moplayer = MOAVPlayer.sharedMOAVPlayer
+        moplayer.player(withChapter: chapters[currentIndex])
+        
         
         // 注册后台播放，配置audio session
         registerBackgroundPlayback()
@@ -228,12 +237,21 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             currentIndex = audioList.count - 1
         }
-        playerStop()
-        audioTitle.text = audioList[currentIndex].audioName
-        singer.text = audioList[currentIndex].musician
-//        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
-        playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
-        setLockScreenMusicInfo()
+//        playerStop()
+//        audioTitle.text = audioList[currentIndex].audioName
+//        singer.text = audioList[currentIndex].musician
+////        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
+//        playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+        
+        
+        updatePlayerUI()
+        moplayer.player(withChapter: chapters[currentIndex])
+        if isPlaying {
+            playerPlay()
+            isPlaying = true
+        }
+        
+        //setLockScreenMusicInfo()
     }
     
     // 下一首
@@ -244,16 +262,21 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             currentIndex = 0
         }
-        playerStop()
-        //playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+//        playerStop()
+//        playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
         
         //
         moplayer.player(withChapter: chapters[currentIndex])
-        
+        if isPlaying {
+            playerPlay()
+            isPlaying = true
+        }
         audioTitle.text = audioList[currentIndex].audioName
         singer.text = audioList[currentIndex].musician
+        updatePlayerUI()
+        
 //        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
-        //setLockScreenMusicInfo()
+//        setLockScreenMusicInfo()
     }
     
     
@@ -333,6 +356,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         progress.value = 0.0
     }
     
+    // 更新player的UI（title、singer等）
+    func updatePlayerUI() {
+        let chapter = chapters[currentIndex]
+        audioTitle.text = chapter.title
+        singer.text = chapter.reader
+    }
+    
     // 注册后台播放，配置audio session
     func registerBackgroundPlayback() {
         let session = AVAudioSession.sharedInstance()
@@ -366,6 +396,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 //        return url
 //    }
     
+    
+    
     // 播放
     func playerPlay() {
         // change button image from play to pasue
@@ -375,10 +407,32 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
             player.play()
         }
         if let moplayer = moplayer {
-            moplayer.player(withChapter: chapters[currentIndex])
             moplayer.play()
+            // 监听播放完成
+            NotificationCenter.default.addObserver(self,
+                                                   selector: #selector(playerFinished),
+                                                   name: Notification.Name.AVPlayerItemDidPlayToEndTime,
+                                                   object: moplayer.player.currentItem)
         }
     }
+    @objc func playerFinished() {
+        // 播放下一首
+        playerPlayNext()
+    }
+    
+    // 播放下一首
+    func playerPlayNext() {
+        // 移除监听
+        NotificationCenter.default.removeObserver(self)
+        
+        if let moplayer = moplayer {
+            currentIndex = currentIndex + 1
+            updatePlayerUI()
+            moplayer.player(withChapter: chapters[currentIndex])
+            playerPlay()
+        }
+    }
+    
     // 暂停
     func playerPause() {
         // change button image from psuse to play

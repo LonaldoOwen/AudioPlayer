@@ -14,7 +14,7 @@
 import UIKit
 import MediaPlayer
 
-class PlayerViewController: UIViewController, PlayerDelegate {
+class TempPlayerViewController: UIViewController, PlayerDelegate {
     
     var isPlayingSb: Bool = false   // Storyboard 拉出来的button
     var player: Player?

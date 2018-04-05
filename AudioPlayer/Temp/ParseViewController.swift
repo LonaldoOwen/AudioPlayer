@@ -25,6 +25,8 @@ class ParseViewController: UIViewController {
     var playerItem: AVPlayerItem!
     var player: AVPlayer!
     
+    var moplayer: MOAVPlayer!
+    
     // Key-value observing context
     private var playerItemContext = 0
     let requiredAssetKeys = [
@@ -51,6 +53,10 @@ class ParseViewController: UIViewController {
 //        if let mediaUrlString = mediaUrlString {
 //            mediaUrl = URL.init(string: mediaUrlString)
 //        }
+        
+        // 使用MOAVPlayer
+        moplayer = MOAVPlayer()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +75,7 @@ class ParseViewController: UIViewController {
         
         //
         //playLocalFileWithAsset()
-        playLocalFileWithAssetUsingGlobalProperties()
+        //playLocalFileWithAssetUsingGlobalProperties()
         
         //
         //playRemoteWithAVPlayer()
@@ -80,6 +86,9 @@ class ParseViewController: UIViewController {
         
         // Observing Playback State
         //prepareToPlay()
+        
+        // Using MOAVPlayer
+        usingMOAVPlayer()
     }
     
     // MARK: - KVO
@@ -309,8 +318,11 @@ class ParseViewController: UIViewController {
         }
     }
     
-    
-    
+    //
+    func usingMOAVPlayer() {
+        moplayer.player(withUrl: url)
+        moplayer.play()
+    }
     
     
     
