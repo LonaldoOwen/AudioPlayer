@@ -7,11 +7,12 @@
 //
 /// MOAVPlayer.swift
 /// 功能：将使用AVKit、AVPlayer、AVFoundation放在一个文件内处理
-/// 1、
-/// 2、
+/// 1、parse HTML; 创建MOAVPlayer Singleton；
+/// 2、监听asset状态；player item加载状态；player状态；
+/// 3、增加Delegate，
 ///
 /// 问题：
-/// 1、
+/// 1、observer有时需要成对出现，add然后需要remove；
 ///
 
 
@@ -137,7 +138,7 @@ class MOAVPlayer: NSObject {
         addPeriodicTimeObserver()
     }
     
-    //
+    // 创建播放实例方法
     func player(withChapter chapter: Chapter, xPath: String, attribute: String) {
         var mediaUrl:URL!
         let mediaUrlString = Helper.parseHTML(withUrl: URL.init(string: chapter.urlString)!, xPath: xPath, attribute: attribute)
@@ -148,7 +149,7 @@ class MOAVPlayer: NSObject {
         self.player(withUrl: mediaUrl)
     }
     
-    //
+    // 创建播放实例方法
     func player(withChapter chapter: Chapter) {
         print("#MOAVPlayer: - 创建player")
         
@@ -204,6 +205,11 @@ class MOAVPlayer: NSObject {
     
     
     // MARK: - KVO
+    
+    // add observer
+    func addObserver() {
+        // some observer can be here in the same time
+    }
     
     // 处理oberver的监听
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

@@ -6,20 +6,23 @@
 //  Copyright © 2018 owen. All rights reserved.
 //
 /// PlayerViewController.swift
-/// 功能：media的播放页面
+/// 功能：media的播放页面；原则：可以达到复用，尽量将处理过程房子player中进行，此处尽量少处理逻辑；
 /// 1、目前使用AVPlayer实现播放音频功能；
-/// 2、目前已实现：基本播放、界面更新、进度调整
+/// 2、目前已实现：基本播放、界面更新、进度调整、显示加载过程、
 /// 3、监听播放完毕
 /// 4、播放进度调整
+/// 5、应用Delegate调整UI及其他变化
+///
+/// 问题：
+/// 1、float point 的NaN
+///
+///
 ///
 
 
 import UIKit
 import AVFoundation
 import MediaPlayer
-
-
-
 
 
 class PlayerViewController: UIViewController {
@@ -368,46 +371,6 @@ class PlayerViewController: UIViewController {
         }
     }
     
-    // add PeriodicTimeObserver
-    func addPeriodicTimeObserver() {
-        print("#addPeriodicTimeObserver:")
-        //avplayer = moplayer.player
-        //currentAVPlayerItem = avplayer.currentItem
-        
-        // Notify every half second
-        let timeScale = CMTimeScale(NSEC_PER_SEC)
-        let time = CMTime(seconds: 0.5, preferredTimescale: timeScale)
-        /**
-         监听播放进度主要方法
-        */
-        timeObserverToken = avplayer.addPeriodicTimeObserver(forInterval: time, queue: .main) {
-            [weak self] time in
-            
-            // update player transport UI
-            guard let playerItem = self?.currentAVPlayerItem else {
-                print("#currentAVPlayerItem is nil!")
-                return
-            }
-            let currentTime = CMTimeGetSeconds(time)
-            let totalTime = CMTimeGetSeconds(playerItem.duration)
-            print("currentTime: \(currentTime)")
-//            print("totalTime: \(totalTime)")
-            self?.progress.value = Float(currentTime / totalTime)
-            
-            // update progress labels
-            self?.updateProgressLabelValue(current: currentTime, total: totalTime)
-            
-        }
-        
-    }
-    
-    // remove PeriodicTimeObserver
-    func removePeriodicTimeObserver() {
-        print("#removePeriodicTimeObserver:")
-        if let timeObserverToken = timeObserverToken {
-            avplayer.removeTimeObserver(timeObserverToken)
-        }
-    }
     
     
     // MARK: - Lock screen play
@@ -476,6 +439,7 @@ class PlayerViewController: UIViewController {
 }
 
 
+
 // MARK: - 实现MOAVPlayerDelegate
 extension PlayerViewController: MOAVPlayerDelegate {
     
@@ -485,6 +449,7 @@ extension PlayerViewController: MOAVPlayerDelegate {
         if result {
             print("#PlayerViewController: Get parseHTMLResult: \(urlString) ")
             // HTML解析成功，结束菊花
+            // 解析成功再创建播放实例
         } else {
             print("#PlayerViewController: Get parseHTMLResult: nil")
         }
@@ -507,6 +472,7 @@ extension PlayerViewController: MOAVPlayerDelegate {
     // 播放状态
     func moavplayer(_ moavplayer: MOAVPlayer, playerItemDidReadyToPlay status: AVPlayerItemStatus) {
         print("#PlayerViewController: 播放状态")
+        
         if status == .readyToPlay {
             print("#PlayerViewController: readyToPlay")
             if isPlaying {
@@ -518,6 +484,7 @@ extension PlayerViewController: MOAVPlayerDelegate {
     // 加载进度
     func moavplayer(_ moavplayer: MOAVPlayer, playerItemLoadedTime time: TimeInterval) {
         print("#PlayerViewController: 加载进度")
+        
         let total = CMTimeGetSeconds(moavplayer.playItem.duration)
         self.backProgress.progress = Float(time / total)
         //print("#backprogress.progress: \(self.backProgress.progress)")
@@ -526,6 +493,7 @@ extension PlayerViewController: MOAVPlayerDelegate {
     // 播放进度监听
     func moavplayer(_ moavplayer: MOAVPlayer, periodicTimeDidChange time: CMTime) {
         print("#PlayerViewController: 播放进度监听")
+        
         // update player transport UI
         //print("#Get time: \(time)")
         guard let playerItem = moplayer.playItem else {
