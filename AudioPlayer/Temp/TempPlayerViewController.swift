@@ -179,10 +179,10 @@ class TempPlayerViewController: UIViewController, PlayerDelegate {
     }
     // 更新progress label
     func updateProgressLabelValue() {
-        if let player = player?.audioPlayer {
-            currentProgress.text = NSString.timeIntervalToMMSSFormat(timeInterval: player.currentTime) as String
-            leftProgress.text = NSString.timeIntervalToMMSSFormat(timeInterval: (player.duration - player.currentTime)) as String
-        }
+//        if let player = player?.audioPlayer {
+//            currentProgress.text = NSString.timeIntervalToMMSSFormat(timeInterval: player.currentTime) as String
+//            leftProgress.text = NSString.timeIntervalToMMSSFormat(timeInterval: (player.duration - player.currentTime)) as String
+//        }
     }
     
     

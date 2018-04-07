@@ -222,8 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				5AEF978C1F2252C3000E7628 /* ViewController.swift */,
-				5A0A859D2073CDF100630355 /* PlayerViewController.swift */,
 				5A97AA921F4014F800C534A0 /* Player.swift */,
+				5A0A859D2073CDF100630355 /* PlayerViewController.swift */,
 				5A0A859B2071276C00630355 /* MOAVPlayer.swift */,
 			);
 			path = Player;
@@ -560,7 +560,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.owen.mirage.AudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -581,7 +581,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.owen.mirage.AudioPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

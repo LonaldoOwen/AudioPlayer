@@ -64,7 +64,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         
         // UI setup
         setupUI()
-        updatePlayerUI()
+//        updatePlayerUI()
         
         // audio player
 //        let url = URL(fileURLWithPath: Bundle.main.path(forResource: audioList.first?.audioName, ofType: audioList.first?.audioType)!)
@@ -79,24 +79,24 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         /**
          将实例化AVAudioPlayer抽象成方法
          */
-        //playAudio(forResource: (audioList.first?.audioName)!, ofType: (audioList.first?.audioType)!)
+        playAudio(forResource: (audioList.first?.audioName)!, ofType: (audioList.first?.audioType)!)
         
         /// 问题：未使用单例时，返回列表播放新的audio，会同时播放两个audio
         /// 原因：
         /// 解决：使用singleton
         //moplayer = MOAVPlayer()
-        moplayer = MOAVPlayer.sharedMOAVPlayer
-        moplayer.player(withChapter: chapters[currentIndex])
+//        moplayer = MOAVPlayer.sharedMOAVPlayer
+//        moplayer.player(withChapter: chapters[currentIndex])
         
         
         // 注册后台播放，配置audio session
         registerBackgroundPlayback()
         
         // MPRemoteCommandCenter
-        //lockScreenControlUsingMPRemoteCommandCenter()
+        lockScreenControlUsingMPRemoteCommandCenter()
         
         // 设置锁屏歌曲信息
-        //setLockScreenMusicInfo()
+        setLockScreenMusicInfo()
         
         // 注册通知
         registerForNotifications()
@@ -237,21 +237,20 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             currentIndex = audioList.count - 1
         }
-//        playerStop()
-//        audioTitle.text = audioList[currentIndex].audioName
-//        singer.text = audioList[currentIndex].musician
-////        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
-//        playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+        playerStop()
+        audioTitle.text = audioList[currentIndex].audioName
+        singer.text = audioList[currentIndex].musician
+//        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
+        playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+        setLockScreenMusicInfo()
         
+//        updatePlayerUI()
+//        moplayer.player(withChapter: chapters[currentIndex])
+//        if isPlaying {
+//            playerPlay()
+//            isPlaying = true
+//        }
         
-        updatePlayerUI()
-        moplayer.player(withChapter: chapters[currentIndex])
-        if isPlaying {
-            playerPlay()
-            isPlaying = true
-        }
-        
-        //setLockScreenMusicInfo()
     }
     
     // 下一首
@@ -262,21 +261,21 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             currentIndex = 0
         }
-//        playerStop()
-//        playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
+        playerStop()
+        playAudio(forResource: audioList[currentIndex].audioName, ofType: audioList[currentIndex].audioType)
         
         //
-        moplayer.player(withChapter: chapters[currentIndex])
-        if isPlaying {
-            playerPlay()
-            isPlaying = true
-        }
-        audioTitle.text = audioList[currentIndex].audioName
-        singer.text = audioList[currentIndex].musician
-        updatePlayerUI()
+//        moplayer.player(withChapter: chapters[currentIndex])
+//        if isPlaying {
+//            playerPlay()
+//            isPlaying = true
+//        }
+//        audioTitle.text = audioList[currentIndex].audioName
+//        singer.text = audioList[currentIndex].musician
+//        updatePlayerUI()
         
-//        audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
-//        setLockScreenMusicInfo()
+        //audioPlayer = try? AVAudioPlayer(contentsOf: getUrl(audioList[currentIndex]))
+        setLockScreenMusicInfo()
     }
     
     
@@ -296,10 +295,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     // 更新progress label
     func updateProgressLabelValue() {
-        if let player = audioPlayer {
-            currentProgress.text = NSString.timeIntervalToMMSSFormat(timeInterval: player.currentTime) as String
-            leftProgress.text = NSString.timeIntervalToMMSSFormat(timeInterval: (player.duration - player.currentTime)) as String
-        }
+//        if let player = audioPlayer {
+//            currentProgress.text = NSString.timeIntervalToMMSSFormat(timeInterval: player.currentTime) as String
+//            leftProgress.text = NSString.timeIntervalToMMSSFormat(timeInterval: (player.duration - player.currentTime)) as String
+//        }
     }
     
     
@@ -406,32 +405,24 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         if let player = audioPlayer {
             player.play()
         }
-        if let moplayer = moplayer {
-            moplayer.play()
-            // 监听播放完成
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(playerFinished),
-                                                   name: Notification.Name.AVPlayerItemDidPlayToEndTime,
-                                                   object: moplayer.player.currentItem)
-        }
     }
-    @objc func playerFinished() {
-        // 播放下一首
-        playerPlayNext()
-    }
-    
-    // 播放下一首
-    func playerPlayNext() {
-        // 移除监听
-        NotificationCenter.default.removeObserver(self)
-        
-        if let moplayer = moplayer {
-            currentIndex = currentIndex + 1
-            updatePlayerUI()
-            moplayer.player(withChapter: chapters[currentIndex])
-            playerPlay()
-        }
-    }
+//    @objc func playerFinished() {
+//        // 播放下一首
+//        playerPlayNext()
+//    }
+//    
+//    // 播放下一首
+//    func playerPlayNext() {
+//        // 移除监听
+//        NotificationCenter.default.removeObserver(self)
+//        
+//        if let moplayer = moplayer {
+//            currentIndex = currentIndex + 1
+//            updatePlayerUI()
+//            moplayer.player(withChapter: chapters[currentIndex])
+//            playerPlay()
+//        }
+//    }
     
     // 暂停
     func playerPause() {
@@ -441,9 +432,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         if let player = audioPlayer {
             player.pause()
         }
-        if let moplayer = moplayer {
-            moplayer.pause()
-        }
+//        if let moplayer = moplayer {
+//            moplayer.pause()
+//        }
     }
     // 停止
     func playerStop() {
@@ -560,18 +551,7 @@ extension ViewController {
 
 
 
-///
-extension NSString {
-    
-    // 生成播放时长格式字符串
-    class func timeIntervalToMMSSFormat(timeInterval ti: TimeInterval) -> NSString {
-        let ti: Int = Int(ti)
-        let seconds: Int = ti % 60
-        let minutes: Int = (ti / 60) % 60
-        return NSString.init(format: "%.2ld:%.2ld", minutes, seconds)
-    }
-    
-}
+
 
 
 

@@ -77,7 +77,22 @@ extension Helper {
 }
 
 
-
+///
+extension NSString {
+    
+    // 生成播放时长格式字符串
+    class func timeIntervalToMMSSFormat(timeInterval ti: TimeInterval) -> NSString {
+        
+        /// 问题：Fatal error: Double value cannot be converted to Int because it is either infinite or NaN
+        /// 原因：？？？
+        /// 解决：
+        let ti: Int = Int(ti)
+        let seconds: Int = ti % 60
+        let minutes: Int = (ti / 60) % 60
+        return NSString.init(format: "%.2ld:%.2ld", minutes, seconds)
+    }
+    
+}
 
 
 
